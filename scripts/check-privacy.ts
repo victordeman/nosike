@@ -2,7 +2,7 @@
  * Privacy gate (SPEC §2.1). Fails if tracked files (or a given build directory)
  * contain personal contact data, birth dates, or raw source documents.
  *
- *   node scripts/check-privacy.ts            # scan git-tracked + staged files
+ *   node scripts/check-privacy.ts            # scan staged (index) + untracked files
  *   node scripts/check-privacy.ts .next out  # also scan build output directories
  */
 import { execFileSync } from "node:child_process";
@@ -25,12 +25,16 @@ const PATTERNS: Array<[string, RegExp]> = [
   ["marital status", /marital\s+status/i],
 ];
 
-function gitFiles(): string[] {
-  const out = execFileSync("git", ["ls-files", "--cached", "--others", "--exclude-standard", "-z"], {
-    encoding: "utf8",
-  });
-  return out.split("\0").filter((f) => f && existsSync(f));
+function git(args: string[]): string[] {
+  return execFileSync("git", args, { encoding: "utf8" }).split("\0").filter(Boolean);
 }
+
+// Index content is what a commit will contain, so tracked files are read from the index, not the working tree.
+const indexed = new Set(git(["ls-files", "--cached", "-z"]));
+const read = (file: string) =>
+  indexed.has(file)
+    ? execFileSync("git", ["show", `:${file}`], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 })
+    : readFileSync(file, "utf8");
 
 function walk(dir: string): string[] {
   if (!existsSync(dir)) return [];
@@ -46,7 +50,7 @@ function walk(dir: string): string[] {
 
 const violations: string[] = [];
 const toPosix = (p: string) => p.split(sep).join("/");
-const files = [...gitFiles(), ...process.argv.slice(2).flatMap(walk)].map((f) => toPosix(relative(".", f)));
+const files = [...indexed, ...git(["ls-files", "--others", "--exclude-standard", "-z"]), ...process.argv.slice(2).flatMap(walk)].map((f) => toPosix(relative(".", f)));
 
 for (const file of new Set(files)) {
   const ext = extname(file).toLowerCase();
@@ -59,7 +63,7 @@ for (const file of new Set(files)) {
     continue;
   }
   if (PATTERN_EXEMPT.has(file) || BINARY_EXTENSIONS.has(ext)) continue;
-  const text = readFileSync(file, "utf8");
+  const text = read(file);
   text.split("\n").forEach((line, i) => {
     for (const [label, re] of PATTERNS) {
       if (re.test(line)) violations.push(`${file}:${i + 1}: ${label}`);
