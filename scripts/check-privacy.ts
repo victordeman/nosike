@@ -31,10 +31,8 @@ function git(args: string[]): string[] {
 
 // Index content is what a commit will contain, so tracked files are read from the index, not the working tree.
 const indexed = new Set(git(["ls-files", "--cached", "-z"]));
-const read = (file: string) =>
-  indexed.has(file)
-    ? execFileSync("git", ["show", `:${file}`], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 })
-    : readFileSync(file, "utf8");
+const fromIndex = (file: string) =>
+  execFileSync("git", ["show", `:${file}`], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
 
 function walk(dir: string): string[] {
   if (!existsSync(dir)) return [];
@@ -50,7 +48,8 @@ function walk(dir: string): string[] {
 
 const violations: string[] = [];
 const toPosix = (p: string) => p.split(sep).join("/");
-const files = [...indexed, ...git(["ls-files", "--others", "--exclude-standard", "-z"]), ...process.argv.slice(2).flatMap(walk)].map((f) => toPosix(relative(".", f)));
+const scanned = new Set(process.argv.slice(2).flatMap(walk).map((f) => toPosix(relative(".", f))));
+const files = [...indexed, ...git(["ls-files", "--others", "--exclude-standard", "-z"]), ...scanned];
 
 for (const file of new Set(files)) {
   const ext = extname(file).toLowerCase();
@@ -63,8 +62,11 @@ for (const file of new Set(files)) {
     continue;
   }
   if (PATTERN_EXEMPT.has(file) || BINARY_EXTENSIONS.has(ext)) continue;
-  const text = read(file);
-  text.split("\n").forEach((line, i) => {
+  // Check both what will be committed (index) and what is on disk for scanned directories.
+  const texts = new Set<string>();
+  if (indexed.has(file)) texts.add(fromIndex(file));
+  if (!indexed.has(file) || scanned.has(file)) texts.add(readFileSync(file, "utf8"));
+  for (const text of texts) text.split("\n").forEach((line, i) => {
     for (const [label, re] of PATTERNS) {
       if (re.test(line)) violations.push(`${file}:${i + 1}: ${label}`);
     }
