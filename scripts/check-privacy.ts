@@ -14,7 +14,18 @@ const FORBIDDEN_EXTENSIONS = new Set([".pdf", ".docx", ".pptx", ".zip"]);
 // Files that legitimately describe the rules themselves.
 const PATTERN_EXEMPT = new Set(["SPEC.md", "scripts/check-privacy.ts"]);
 const BINARY_EXTENSIONS = new Set([
-  ".png", ".jpg", ".jpeg", ".webp", ".avif", ".gif", ".ico", ".woff", ".woff2", ".ttf", ".otf", ".pdf",
+  ".png",
+  ".jpg",
+  ".jpeg",
+  ".webp",
+  ".avif",
+  ".gif",
+  ".ico",
+  ".woff",
+  ".woff2",
+  ".ttf",
+  ".otf",
+  ".pdf",
 ]);
 
 const PATTERNS: Array<[string, RegExp]> = [
@@ -48,7 +59,12 @@ function walk(dir: string): string[] {
 
 const violations: string[] = [];
 const toPosix = (p: string) => p.split(sep).join("/");
-const scanned = new Set(process.argv.slice(2).flatMap(walk).map((f) => toPosix(relative(".", f))));
+const scanned = new Set(
+  process.argv
+    .slice(2)
+    .flatMap(walk)
+    .map((f) => toPosix(relative(".", f))),
+);
 const files = [...indexed, ...git(["ls-files", "--others", "--exclude-standard", "-z"]), ...scanned];
 
 for (const file of new Set(files)) {
@@ -66,11 +82,12 @@ for (const file of new Set(files)) {
   const texts = new Set<string>();
   if (indexed.has(file)) texts.add(fromIndex(file));
   if (!indexed.has(file) || scanned.has(file)) texts.add(readFileSync(file, "utf8"));
-  for (const text of texts) text.split("\n").forEach((line, i) => {
-    for (const [label, re] of PATTERNS) {
-      if (re.test(line)) violations.push(`${file}:${i + 1}: ${label}`);
-    }
-  });
+  for (const text of texts)
+    text.split("\n").forEach((line, i) => {
+      for (const [label, re] of PATTERNS) {
+        if (re.test(line)) violations.push(`${file}:${i + 1}: ${label}`);
+      }
+    });
 }
 
 if (violations.length) {
