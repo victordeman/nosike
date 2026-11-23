@@ -1,0 +1,32 @@
+# Client source files — never commit (SPEC §2.1)
+_sources/
+
+# Dependencies / build
+node_modules/
+.next/
+out/
+build/
+coverage/
+playwright-report/
+test-results/
+.lighthouseci/
+*.tsbuildinfo
+next-env.d.ts
+
+# Env
+.env*
+!.env.example
+
+# Vercel
+.vercel/
+
+# Raw documents — only the approved public CV PDF may be committed
+*.pdf
+*.docx
+*.pptx
+*.zip
+!public/cv/Nosike-CV-public.pdf
+
+# OS / editor
+.DS_Store
+*.log
