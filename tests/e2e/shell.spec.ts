@@ -60,9 +60,11 @@ test("unknown routes render the 404 page", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Page not found" })).toBeVisible();
 });
 
-test("design gallery is not available in production", async ({ page }) => {
+test("design gallery is not available in production and its 404 keeps the theme", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("theme", "dark"));
   const res = await page.goto("/_design");
   expect(res?.status()).toBe(404);
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
 });
 
 test("system dark preference applies when storage is blocked", async ({ page }) => {

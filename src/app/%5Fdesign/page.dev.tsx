@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import {
   Badge,
   Button,
@@ -31,10 +30,8 @@ const swatches = [
   "gold-soft",
 ];
 
-/** Development-only component gallery; 404 in production builds. */
+/** Development-only component gallery: `.dev.tsx` is only a page extension under `next dev`. */
 export default function DesignPage() {
-  if (process.env.NODE_ENV === "production") notFound();
-
   return (
     <>
       <Container className="py-16">
