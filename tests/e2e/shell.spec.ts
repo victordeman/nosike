@@ -64,3 +64,30 @@ test("design gallery is not available in production", async ({ page }) => {
   const res = await page.goto("/_design");
   expect(res?.status()).toBe(404);
 });
+
+test("system dark preference applies when storage is blocked", async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(window, "localStorage", {
+      get() {
+        throw new Error("blocked");
+      },
+    });
+  });
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.goto("/");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+});
+
+test("mobile menu closes when viewport grows to desktop", async ({ page }, info) => {
+  test.skip(info.project.name !== "mobile-360", "mobile only");
+  await page.goto("/");
+  await page.getByRole("button", { name: "Menu", exact: true }).click();
+  const dialog = page.getByRole("dialog", { name: "Site menu" });
+  await expect(dialog).toBeVisible();
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await expect(dialog).toBeHidden();
+  await page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: "Scholarship" }).focus();
+  await expect(
+    page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: "Scholarship" }),
+  ).toBeFocused();
+});
