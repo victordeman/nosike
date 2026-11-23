@@ -2,7 +2,7 @@
 
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { NavItem } from "@/lib/site";
 
 export function MobileNav({ items }: { items: NavItem[] }) {
@@ -11,6 +11,13 @@ export function MobileNav({ items }: { items: NavItem[] }) {
   const pathname = usePathname();
 
   const close = () => dialog.current?.close();
+
+  useEffect(() => {
+    const desktop = matchMedia("(min-width: 64rem)");
+    const onChange = (e: MediaQueryListEvent) => e.matches && dialog.current?.close();
+    desktop.addEventListener("change", onChange);
+    return () => desktop.removeEventListener("change", onChange);
+  }, []);
 
   return (
     <>
