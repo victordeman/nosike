@@ -142,7 +142,7 @@ export default function HomePage() {
               View the full map
             </ButtonLink>
           </div>
-          <WorldMap withList={false} headingLevel="h3" />
+          <WorldMap headingLevel="h3" />
         </div>
       </Section>
 
