@@ -9,7 +9,7 @@ import { WorldMap } from "@/components/map/world-map";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { getCountries, getProfile, getTalks, verifiedCountries } from "@/lib/content";
 import { imageById } from "@/lib/images";
-import { site } from "@/lib/site";
+import { ogImage, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   description: `${site.role}. Economist and global management scholar — university leadership, scholarship and public policy.`,
@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     title: site.name,
     description: `${site.role}. Economist and global management scholar — university leadership, scholarship and public policy.`,
     url: site.url,
+    images: [ogImage],
   },
 };
 

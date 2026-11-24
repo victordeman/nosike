@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import { Section } from "@/components/ui/layout";
 import { getEducation, getMemberships, sortEducation } from "@/lib/content";
-import { site } from "@/lib/site";
+import { ogImage, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Education",
@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     title: `Education · ${site.name}`,
     description: `Degrees, fellowships and professional memberships of ${site.name}.`,
     url: `${site.url}/education`,
+    images: [ogImage],
   },
 };
 

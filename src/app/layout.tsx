@@ -5,7 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { themeScript } from "@/components/layout/theme-toggle";
-import { site } from "@/lib/site";
+import { ogImage, site } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: site.name,
     type: "website",
-    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: site.name }],
+    images: [ogImage],
   },
   twitter: { card: "summary_large_image" },
 };

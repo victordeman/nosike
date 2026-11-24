@@ -6,7 +6,7 @@ import { Section } from "@/components/ui/layout";
 import { WorldMap } from "@/components/map/world-map";
 import { CareerBrowser } from "@/components/leadership/career-browser";
 import { getCareer, getCommittees, sortCareer } from "@/lib/content";
-import { site } from "@/lib/site";
+import { ogImage, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Leadership",
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     title: `Leadership · ${site.name}`,
     description: `Career record of ${site.name}: university executive roles, governance committees and institution-building across Africa, Europe and the Americas.`,
     url: `${site.url}/leadership`,
+    images: [ogImage],
   },
 };
 

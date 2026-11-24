@@ -6,7 +6,7 @@ import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { getBio } from "@/lib/bio";
 import { getProfile } from "@/lib/content";
 import { imagesByRole } from "@/lib/images";
-import { site } from "@/lib/site";
+import { ogImage, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     title: `About · ${site.name}`,
     description: `Biography of ${site.name} — ${site.role}. Research interests, languages and values.`,
     url: `${site.url}/about`,
+    images: [ogImage],
   },
 };
 

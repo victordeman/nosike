@@ -4,6 +4,9 @@ export const site = {
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
 };
 
+/** Shared social-card image; page-level openGraph objects replace the root one, so every page must include it. */
+export const ogImage = { url: "/og-default.png", width: 1200, height: 630, alt: site.name };
+
 export type NavItem = { href: string; label: string };
 
 export const primaryNav: NavItem[] = [
