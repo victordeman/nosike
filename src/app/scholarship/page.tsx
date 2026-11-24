@@ -18,6 +18,26 @@ export const metadata: Metadata = {
   },
 };
 
+const POSITION_LABELS: Record<string, string> = {
+  chair: "Chair",
+  "editor-in-chief": "Editor-in-Chief",
+  editor: "Editor",
+  "managing-editor": "Managing Editor",
+  "consulting-editor": "Consulting Editor",
+  secretary: "Secretary, Editorial Board",
+  member: "Member",
+  "founding-president": "Founding President",
+};
+
+function positionText(role: string, detail?: string | null): string {
+  const label = POSITION_LABELS[role] ?? role;
+  if (!detail) return label;
+  const d = detail.trim();
+  if (d.toLowerCase() === "editorial consultant") return label;
+  if (d.toLowerCase().includes(label.toLowerCase())) return d;
+  return `${label} · ${d}`;
+}
+
 function bookMeta(pub: { year: number | null; publisher?: string; place?: string }): string {
   const head = [pub.publisher, pub.place].filter(Boolean).join(", ");
   return head + (pub.year ? ` · ${pub.year}` : "");
@@ -82,16 +102,10 @@ export default function ScholarshipPage() {
             <li key={role.id}>
               <Card className="h-full">
                 <p className="font-semibold">{role.journal}</p>
-                <p className="text-ink-muted mt-1 text-sm">{role.detail}</p>
+                <p className="text-ink-muted mt-1 text-sm">{positionText(role.role, role.detail)}</p>
               </Card>
             </li>
           ))}
-          <li>
-            <Card className="border-accent h-full border-2">
-              <p className="font-semibold">African Association of Journal Editors</p>
-              <p className="text-ink-muted mt-1 text-sm">Founding President</p>
-            </Card>
-          </li>
         </ul>
       </Section>
     </>
