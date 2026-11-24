@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Design tokens. Every text/background pair is checked for WCAG AA in tests/unit/contrast.test.ts. */
+:root {
+  --paper: #f7f5f0;
+  --surface: #ffffff;
+  --surface-muted: #efebe2;
+  --ink: #14213d;
+  --ink-muted: #4a5568;
+  --line: #ddd7ca;
+  --accent: #1f5135;
+  --accent-strong: #163d27;
+  --accent-contrast: #ffffff;
+  --gold: #7a5c17;
+  --gold-soft: #c9a54e;
+  --focus: #1f5135;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --paper: #0d1524;
+  --surface: #142033;
+  --surface-muted: #1b2940;
+  --ink: #eceae3;
+  --ink-muted: #a9b3c4;
+  --line: #2a3a55;
+  --accent: #7cc59a;
+  --accent-strong: #9ad6b2;
+  --accent-contrast: #0d1524;
+  --gold: #d9b65e;
+  --gold-soft: #a8873a;
+  --focus: #9ad6b2;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), ui-serif, Georgia, serif;
+}
+
+@theme {
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.7;
+  --text-display: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem);
+  --text-display--line-height: 1.05;
+  --radius-card: 0.75rem;
+  --shadow-card: 0 1px 2px rgb(20 33 61 / 0.06), 0 8px 24px -12px rgb(20 33 61 / 0.18);
+  --container-prose: 68ch;
+  --container-page: 76rem;
+}
+
+@layer base {
+  html {
+    background: var(--paper);
+    color: var(--ink);
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply font-sans text-base antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-ink font-serif tracking-tight;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 25%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+}
