@@ -1,0 +1,140 @@
+[
+  {
+    "id": "edu-phd-economics",
+    "level": "doctoral",
+    "qualification": "PhD Economics (Development Economics & Public Policy)",
+    "field": "Development Economics & Public Policy",
+    "institution": "Universidad Central de Nicaragua",
+    "place": "Nicaragua",
+    "dates": "2016",
+    "notes": ["Short biography states the degree was earned with distinction"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.4"
+  },
+  {
+    "id": "edu-phd-business",
+    "level": "doctoral",
+    "qualification": "PhD Business Administration (Marketing & Entrepreneurship)",
+    "field": "Marketing & Entrepreneurship",
+    "institution": "Universidad Azteca",
+    "place": "Chalco, Mexico",
+    "dates": "2011",
+    "notes": [],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.4"
+  },
+  {
+    "id": "edu-mba-azteca",
+    "level": "masters",
+    "qualification": "MBA (Finance & Accounting)",
+    "field": "Finance & Accounting",
+    "institution": "Universidad Azteca",
+    "place": "Chalco, Mexico",
+    "dates": "2005",
+    "notes": [],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.4; Appendix C item 5"
+  },
+  {
+    "id": "edu-masters-ucam",
+    "level": "masters",
+    "qualification": "Master's degree",
+    "field": "Entrepreneurship & Innovation",
+    "institution": "Universidad Católica San Antonio de Murcia (UCAM)",
+    "place": "Murcia, Spain",
+    "notes": ["Field named per the CV; other sources say Management (Appendix C item 5)"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.4; Appendix C item 5"
+  },
+  {
+    "id": "edu-mba-rivers",
+    "level": "masters",
+    "qualification": "MBA (Marketing)",
+    "field": "Marketing",
+    "institution": "Rivers State University of Science & Technology",
+    "place": "Port Harcourt, Nigeria",
+    "dates": "1997–1999",
+    "notes": [],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.4"
+  },
+  {
+    "id": "edu-pgd-imo",
+    "level": "postgraduate",
+    "qualification": "PGD Management",
+    "institution": "Imo State University",
+    "place": "Owerri, Nigeria",
+    "dates": "1995–1996",
+    "notes": [],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.4"
+  },
+  {
+    "id": "edu-ceu-fellowship",
+    "level": "postgraduate",
+    "qualification": "Postgraduate Fellowship in Globalization, Power and Resistance",
+    "institution": "Central European University",
+    "place": "Budapest, Hungary",
+    "dates": "2006–2007",
+    "notes": [],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.4"
+  },
+  {
+    "id": "edu-iihr-strasbourg",
+    "level": "postgraduate",
+    "qualification": "Postgraduate training in International and Comparative Human Rights Law",
+    "institution": "International Institute of Human Rights",
+    "place": "Strasbourg, France",
+    "dates": "2005",
+    "notes": [],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.4"
+  },
+  {
+    "id": "edu-iss-warsaw",
+    "level": "postgraduate",
+    "qualification": "Postgraduate training/coursework in Economy, State and Society",
+    "institution": "Institute of Social Studies",
+    "place": "Warsaw, Poland",
+    "dates": "2004–2005",
+    "notes": [
+      "Short biography names Centre for Social Studies, Warsaw, and University of Lancaster, UK — Lancaster omitted pending confirmation (Appendix C item 5)"
+    ],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.4; Appendix C item 5"
+  },
+  {
+    "id": "edu-bsc-social-studies",
+    "level": "foundation",
+    "qualification": "B.Sc. (Hons) Social Studies (Economics), Upper Second Class",
+    "field": "Social Studies (Economics)",
+    "institution": "University of Nigeria, Nsukka",
+    "place": "Nsukka, Nigeria",
+    "dates": "1991–1993; 1995–1997",
+    "notes": [],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.4"
+  },
+  {
+    "id": "edu-bsc-geography",
+    "level": "foundation",
+    "qualification": "B.Sc. (Hons) Geography",
+    "field": "Geography",
+    "institution": "University of Nigeria, Nsukka",
+    "place": "Nsukka, Nigeria",
+    "notes": [],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.4"
+  },
+  {
+    "id": "edu-nce-awka",
+    "level": "foundation",
+    "qualification": "NCE Social Studies (Distinction)",
+    "field": "Social Studies",
+    "institution": "Anambra State College of Education",
+    "place": "Awka, Nigeria",
+    "dates": "1987–1990",
+    "notes": [],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.4"
+  },
+  {
+    "id": "edu-diploma-cia",
+    "level": "professional",
+    "qualification": "Diploma in Business Administration (Distinction); Higher Diploma in Mass Communication",
+    "institution": "Chartered Institute of Administrators",
+    "place": "Nigeria",
+    "dates": "1987–1991",
+    "notes": [],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.4"
+  }
+]

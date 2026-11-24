@@ -1,0 +1,141 @@
+[
+  {
+    "id": "pol-ascon-advisor",
+    "organisation": "Administrative Staff College of Nigeria (ASCON), The Presidency",
+    "role": "Technical Advisor",
+    "status": "approved",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.9"
+  },
+  {
+    "id": "pol-ascon-ceo-programme",
+    "organisation": "ASCON Mandatory Training Programme for CEOs of Federal Government Agencies and Parastatals, Cohort 14",
+    "role": "Facilitator",
+    "period": "31 May – 6 June 2026 (his session: 4 June 2026)",
+    "detail": "Theme: Leadership for Policy Execution: From Mandate to Measurable Results. Session title and abstract only; deck statistics are not republished (SPEC §2.2).",
+    "status": "approved",
+    "source": "Performance_Dashboards_NSIPA_-_Prof._Nosike_2.pptx; ASCON invitation DG.40/XV/440; SPEC.md › Appendix A.9, C item 12"
+  },
+  {
+    "id": "pol-ascon-exam",
+    "organisation": "ASCON",
+    "role": "Member, 2026 Promotion and Conversion Examination for senior staff",
+    "period": "2026",
+    "status": "approved",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.9"
+  },
+  {
+    "id": "pol-nsg-strategy",
+    "organisation": "National School of Government (establishment strategy group)",
+    "role": "Member, Strategy Group",
+    "status": "approved",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.9"
+  },
+  {
+    "id": "pol-nche-namibia",
+    "organisation": "National Council for Higher Education (NCHE), Namibia",
+    "role": "Chairperson, University Audit Panel",
+    "period": "2024",
+    "detail": "Appointed by the Government of Namibia; curriculum review and quality-assurance leadership.",
+    "status": "approved",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; Short_Biography_of_Prof_Austin_Nosike-WU.docx; SPEC.md › Appendix A.9"
+  },
+  {
+    "id": "pol-au-commission",
+    "organisation": "African Union Commission, Addis Ababa",
+    "role": "Consultant on Human Capacity Building; Member, Selection Team",
+    "period": "from 2003/2004",
+    "status": "approved",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.9"
+  },
+  {
+    "id": "pol-uneca",
+    "organisation": "UN Economic Commission for Africa (UNECA)",
+    "role": "Consultant on Water, Sanitation and Human Ecology",
+    "detail": "Nigerian/West African delegate, Pan-African Summit on Water (2003); African Civil Society Consultative Meeting on Water, Sanitation and Human Settlement (2004); African Hunger Summit (2004); Chair, Human Settlement Session (Africa), CSD-12; observer at the 2003 African Ministerial Council on Water and Sanitation and AU Assembly/Executive Council sessions.",
+    "status": "approved",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; Short_Biography_of_Prof_Austin_Nosike-WU.docx; SPEC.md › Appendix A.9"
+  },
+  {
+    "id": "pol-hec-rwanda",
+    "organisation": "Higher Education Council of Rwanda",
+    "role": "Resource person / consultant",
+    "status": "approved",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.9"
+  },
+  {
+    "id": "pol-nche-uganda",
+    "organisation": "National Council for Higher Education, Uganda",
+    "role": "Resource person / consultant",
+    "status": "approved",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.9"
+  },
+  {
+    "id": "pol-kenyan-university-commission",
+    "organisation": "Kenyan University Commission (exact name to confirm)",
+    "role": "Resource person / consultant",
+    "status": "pending",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.9"
+  },
+  {
+    "id": "pol-nuc-nigeria",
+    "organisation": "National Universities Commission (NUC), Nigeria",
+    "role": "Resource person / consultant",
+    "status": "approved",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.9"
+  },
+  {
+    "id": "pol-imo-committee",
+    "organisation": "Imo State Committee on the Review of Education and Development",
+    "role": "Member",
+    "period": "1995",
+    "status": "approved",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.9"
+  },
+  {
+    "id": "pol-niger-delta-project",
+    "organisation": "Niger Delta Environmental Health Project",
+    "role": "Project Team Leader",
+    "period": "2003–",
+    "status": "approved",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.9"
+  },
+  {
+    "id": "pol-cajetan-trust",
+    "organisation": "Cajetan Nosike Memorial Trust",
+    "role": "Founder",
+    "period": "1999–",
+    "status": "approved",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.9"
+  },
+  {
+    "id": "pol-cecd-chairman",
+    "organisation": "Centre for Environment and Community Development",
+    "role": "Chairman, Board of Trustees",
+    "period": "2002–",
+    "status": "approved",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.9"
+  },
+  {
+    "id": "pol-yfc-trustee",
+    "organisation": "Youths for Christ Foundation",
+    "role": "Trustee",
+    "period": "1999–",
+    "status": "approved",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.9"
+  },
+  {
+    "id": "pol-water-network",
+    "organisation": "Network on Water and Development in Nigeria",
+    "role": "Co-founder",
+    "period": "2003",
+    "status": "approved",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.9"
+  },
+  {
+    "id": "pol-ndhr-secretary",
+    "organisation": "Niger Delta Network on Human Rights",
+    "role": "Secretary",
+    "status": "approved",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.9"
+  }
+]
