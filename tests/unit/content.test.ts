@@ -59,7 +59,7 @@ describe("filterPublications", () => {
   const pubs = getPublications();
   it("filters by kind", () => {
     const books = filterPublications(pubs, { kind: "book" });
-    expect(books.length).toBe(11);
+    expect(books.length).toBe(10);
     expect(books.every((p) => p.kind === "book")).toBe(true);
   });
   it("filters by decade", () => {

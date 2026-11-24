@@ -48,8 +48,8 @@
     "title": "Education and Development in Imo State",
     "authors": [],
     "year": 1994,
-    "kind": "book",
-    "role": "unknown",
+    "kind": "report",
+    "venue": "A Commissioned Research Report for Ministry of Education and Imo Newspapers Ltd, Owerri",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -129,6 +129,7 @@
     "year": 2020,
     "kind": "journal-article",
     "venue": "Metropolitan Journal of Business and Economics",
+    "issue": "Vol. 1, No. 2",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -138,6 +139,7 @@
     "year": 2020,
     "kind": "journal-article",
     "venue": "Metropolitan Journal of Business & Economics",
+    "issue": "Vol. 1, No. 1",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -147,6 +149,7 @@
     "year": 2018,
     "kind": "journal-article",
     "venue": "International Journal of Arts, Science and Commerce",
+    "issue": "Vol. 6, No. 6",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -156,6 +159,7 @@
     "year": 2018,
     "kind": "journal-article",
     "venue": "Scholars World- International Refereed Multidisciplinary Journal of Contemporary Research",
+    "issue": "Vol. 6, No. 3",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -165,6 +169,7 @@
     "year": null,
     "kind": "journal-article",
     "venue": "Turkish Online Journal of Educational Technology",
+    "issue": "Vol. 10 (July)",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -175,6 +180,7 @@
     "kind": "journal-article",
     "venue": "International Journal of Research in Management, Economics and Commerce. ISSN.2250-057X(online)",
     "issn": "ISSN.2250-057X",
+    "issue": "Vol. 2",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -186,6 +192,9 @@
     "venue": "Gender, Development and the Society",
     "pages": "401-414",
     "isbn": "978-84-612-8483-2",
+    "editors": ["H.E. Adebola", "N.S. Oguzor"],
+    "place": "Granada-Spain",
+    "publisher": "Afro Euro Centre for Development Studies.",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -196,6 +205,9 @@
     "kind": "book-chapter",
     "venue": "Outlook on Economic and Business Environment",
     "isbn": "978-84-612-8482-5",
+    "editors": ["Austin N. Nosike"],
+    "place": "Granada-Spain",
+    "publisher": "Graficas Guerrero.",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -206,6 +218,9 @@
     "kind": "book-chapter",
     "venue": "Outlook on Economic and Business Environment",
     "isbn": "978-84-612-8482-5",
+    "editors": ["Austin N. Nosike"],
+    "place": "Granada-Spain",
+    "publisher": "Graficas Guerrero.",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -216,6 +231,9 @@
     "kind": "book-chapter",
     "venue": "Education, Development and the Changing Environment",
     "isbn": "978-84-612-8484-9",
+    "editors": ["N.S. Oguzor", "H.E. Adebola"],
+    "place": "Granada-Spain",
+    "publisher": "International Association for Teaching and Learning (IATEL).",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -226,6 +244,9 @@
     "kind": "book-chapter",
     "venue": "Outlook on Economic and Business Environment",
     "isbn": "978-84-612-8482-5",
+    "editors": ["Austin N. Nosike"],
+    "place": "Granada-Spain",
+    "publisher": "Graficas Guerrero.",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -236,6 +257,9 @@
     "kind": "book-chapter",
     "venue": "Outlook on Economic and Business Environment",
     "isbn": "978-84-612-8482-5",
+    "editors": ["Austin N. Nosike"],
+    "place": "Granada-Spain",
+    "publisher": "Graficas Guerrero.",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -246,6 +270,9 @@
     "kind": "book-chapter",
     "venue": "Education, Development and the Changing Environment",
     "isbn": "978-84-612-8484-9",
+    "editors": ["N.S. Oguzor", "H.E. Adebola"],
+    "place": "Granada-Spain",
+    "publisher": "International Association for Teaching and Learning (IATEL).",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -257,6 +284,9 @@
     "venue": "Education, Development and the Changing Environment",
     "pages": "539",
     "isbn": "978-84-612-8484-9",
+    "editors": ["N.S. Oguzor", "H.E. Adebola"],
+    "place": "Granada-Spain",
+    "publisher": "International Association for Teaching and Learning (IATEL).",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -265,7 +295,10 @@
     "authors": [],
     "year": null,
     "kind": "book-chapter",
-    "venue": "Global Outlook on Education. New Delhi: Kanishka Publishers & Distributors",
+    "venue": "Global Outlook on Education",
+    "editors": ["Shobana Nelasco", "Peter Stewart", "Tola Olujuvan"],
+    "place": "New Delhi",
+    "publisher": "Kanishka Publishers & Distributors",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -275,6 +308,7 @@
     "year": null,
     "kind": "conference-paper",
     "venue": "Proceedings of the 10th International Conference on Educational Technology and Exhibition, Istanbul-Turkey.",
+    "editors": ["Aytekin Isman"],
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -285,6 +319,7 @@
     "kind": "conference-paper",
     "venue": "Proceedings of International Conference on Teaching and Learning, Sevilla-Spain: International Association for Scientific Knowledge.",
     "pages": "690-694",
+    "editors": ["Guillermo Perez-Bustamante", "Kongkiti Phusavat", "Fernando Ferreira"],
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -296,6 +331,7 @@
     "venue": "Proceedings of International Conference on Teaching and Learning, Sevilla-Spain: International Association for Scientific Knowledge.",
     "pages": "695-701",
     "isbn": "978-989-8295-02-6",
+    "editors": ["Guillermo Perez-Bustamante", "Kongkiti Phusavat", "Fernando Ferreira"],
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -307,6 +343,7 @@
     "venue": "Proceedings of International Conference on E-Activity and Leading Technologies, Oviedo-Spain: International Association for Scientific Knowledge.",
     "pages": "115-120",
     "isbn": "978-989-8295-05-7",
+    "editors": ["Pedro Acosta", "Pedro Cravo"],
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -317,6 +354,7 @@
     "kind": "conference-paper",
     "venue": "Proceedings of International Conference on Global Management, Oviedo-Spain: International Association for Scientific Knowledge.",
     "isbn": "978-989-8295-01-9",
+    "editors": ["Ronald W. Spahr", "Fernando A. Ferreira"],
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -327,6 +365,7 @@
     "kind": "conference-paper",
     "venue": "Proceedings of International Conference on Global Management, Oviedo-Spain: International Association for Scientific Knowledge.",
     "isbn": "978-989-8295-01-9",
+    "editors": ["Ronald W. Spahr", "Fernando A. Ferreira"],
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -337,6 +376,7 @@
     "kind": "conference-paper",
     "venue": "Proceedings of International Conference on Global Management, Oviedo-Spain: International Association for Scientific Knowledge.",
     "isbn": "978-989-8295-01-9",
+    "editors": ["Ronald W. Spahr", "Fernando A. Ferreira"],
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -347,6 +387,7 @@
     "kind": "conference-paper",
     "venue": "Proceedings of International Conference on Global Management, Oviedo-Spain: International Association for Scientific Knowledge.",
     "isbn": "978-989-8295-01-9",
+    "editors": ["Ronald W.Spahr", "Fernando A. Ferreira"],
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -355,8 +396,11 @@
     "authors": [],
     "year": 1996,
     "kind": "book-chapter",
-    "venue": "Women, Development and The Nigerian Environment. lbadan: Vantage Publishers Int'l Ltd.",
+    "venue": "Women, Development and The Nigerian Environment",
     "pages": "58-62",
+    "editors": ["Yomi Oruwari"],
+    "place": "Ibadan",
+    "publisher": "Vantage Publishers Int'l Ltd.",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -617,7 +661,10 @@
     "authors": [],
     "year": 1998,
     "kind": "book-chapter",
-    "venue": "Engineering Human Development and Organisation. Port Harcourt: Hanging Gardens Publishers Ltd.",
+    "venue": "Engineering Human Development and Organisation",
+    "editors": ["S.A. Jaja"],
+    "place": "Port Harcourt",
+    "publisher": "Hanging Gardens Publishers Ltd.",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -647,6 +694,7 @@
     "kind": "journal-article",
     "venue": "Journal of Business and Economic Research",
     "pages": "100-105",
+    "issue": "Vol. 1, No. 2",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -682,6 +730,7 @@
     "kind": "journal-article",
     "venue": "Journal of Research in Education",
     "pages": "144-148",
+    "issue": "Vol. 1, No. 2",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -707,7 +756,7 @@
     "title": "Role of Cooperatives in Rural Development: A Case Study of Owerri",
     "authors": [],
     "year": 1990,
-    "kind": "journal-article",
+    "kind": "unpublished",
     "venue": "Unpublished Project, Anambra State College of Education, Awka",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
@@ -718,6 +767,7 @@
     "year": 2001,
     "kind": "journal-article",
     "venue": "Journal of Business and Economic Research",
+    "issue": "Vol. 2, No. 2",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -727,6 +777,7 @@
     "year": 2001,
     "kind": "journal-article",
     "venue": "Journal of Contemporary Studies",
+    "issue": "Vol. 1, No. 1",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -804,6 +855,7 @@
     "year": 2001,
     "kind": "journal-article",
     "venue": "African Journal of Development Studies",
+    "issue": "Vol. 3, No. 1",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -822,6 +874,7 @@
     "year": 2001,
     "kind": "journal-article",
     "venue": "African Journal of Development Studies",
+    "issue": "Vol. 3, No. 2",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -831,6 +884,7 @@
     "year": 2000,
     "kind": "journal-article",
     "venue": "Journal of Review in Women Studies",
+    "issue": "Vol. 1, No. 1",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -866,7 +920,10 @@
     "authors": [],
     "year": null,
     "kind": "book-chapter",
-    "venue": "Issues in Nigerian Development. Views of Social Scientists. Port Harcourt: Pam Unique Publishing Co. Ltd.",
+    "venue": "Issues in Nigerian Development. Views of Social Scientists",
+    "editors": ["A.C. Onwumerobi"],
+    "place": "Port Harcourt",
+    "publisher": "Pam Unique Publishing Co. Ltd.",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -921,6 +978,9 @@
     "year": 1999,
     "kind": "book-chapter",
     "venue": "Social Science and National Development",
+    "editors": ["M.O. Ezegbe", "S. C. Owunwa"],
+    "place": "Owerri",
+    "publisher": "Whyte and Whyte Publishers Ltd",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -930,6 +990,7 @@
     "year": 2001,
     "kind": "journal-article",
     "venue": "African Journal of Science and Technology",
+    "issue": "Vol. 3, No. 1",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -975,6 +1036,7 @@
     "year": 2001,
     "kind": "journal-article",
     "venue": "African Journal of Development Studies",
+    "issue": "Vol. 3, No. 2",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -984,6 +1046,7 @@
     "year": 2001,
     "kind": "journal-article",
     "venue": "African Journal of Business and Economic Research",
+    "issue": "Vol. 2, No. 1",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -993,6 +1056,7 @@
     "year": 2001,
     "kind": "journal-article",
     "venue": "African Journal of Business and Economic Research",
+    "issue": "Vol. 2, No. 1",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -1002,6 +1066,7 @@
     "year": 2001,
     "kind": "journal-article",
     "venue": "African Journal of Development Studies",
+    "issue": "Vol. 3, No. 1",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {

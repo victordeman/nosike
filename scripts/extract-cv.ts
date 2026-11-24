@@ -19,6 +19,7 @@ const OUT = join(ROOT, "content/publications.json");
 const SOURCE = "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS";
 const FIXES: Array<[RegExp, string]> = [
   [/lmo State/g, "Imo State"],
+  [/\blbadan\b/g, "Ibadan"],
   [/JournaL/g, "Journal"],
   [/Ref1ection/g, "Reflection"],
   // The docx glues "Perspectives on Globalization…" onto the previous ISBN, dropping its capital P.
@@ -69,19 +70,39 @@ const VENUE_PHRASE_RE = new RegExp(
 );
 const VENUE_INDICATOR = /\b(?:Vol\.?|No\.?|pp?\.?|ISBN|ISSN|Legal Deposit|ed\.?|eds?\.?|in )\b/i;
 
-function splitTitleVenue(text: string): { title: string; rest: string } {
+function splitTitleVenue(text: string): {
+  title: string;
+  rest: string;
+  editors?: string[];
+  chapterPlace?: string;
+  chapterPublisher?: string;
+} {
   // Book chapters / contributed papers: "Title. In A. Editor (eds) Book Title. Place: Publisher…"
   const eds =
-    text.match(/^(.{10,400})\s*[.!?"']\s*In\s+[^()]{0,180}?\(\s*eds?\s*\)\s*(.+)$/i) ??
-    text.match(/^(.{10,400})\s+in\s+[A-Z][\w.,&' -]{0,80}?\bet al\.?\s*\(\s*eds?\s*\)\s*(.+)$/i) ??
-    text.match(/^(.{10,400})\s+in\s+[A-Z][\w.,&' -]{0,80}?\(\s*eds?\s*\)\s*(.+)$/i);
+    text.match(/^(.{10,400})\s*[.!?"']\s*In\s+([^()]{0,180}?)\(\s*eds?\s*\)\s*(.+)$/i) ??
+    text.match(/^(.{10,400})\s+in\s+([A-Z][\w.,&' -]{0,80}?)\bet al\.?\s*\(\s*eds?\s*\)\s*(.+)$/i) ??
+    text.match(/^(.{10,400})\s+in\s+([A-Z][\w.,&' -]{0,80}?)\(\s*eds?\s*\)\s*(.+)$/i);
+  let editors: string[] | undefined;
+  let chapterPlace: string | undefined;
+  let chapterPublisher: string | undefined;
   if (eds) {
-    let rest = eds[2]
+    editors = eds[2]
+      .trim()
+      .replace(/\s+et al\.?$/i, "")
+      .split(/\s+and\s+|&|,(?=\s*[A-Z])/)
+      .map((s) => s.trim().replace(/[.,\s]+$/, ""))
+      .filter((s) => s.length > 2 && !/^(?:eds?|et al\.?)$/i.test(s));
+    let rest = eds[3]
       .replace(/\s*(?:ISBN|ISSN|Legal Deposit|pp?\.?\s*[\d\-–]+|https?:\/\/\S*|www\.\S*|http\/\/\S*).*$/i, "")
       .trim();
-    const place = rest.match(/^(.+?)[.!?]\s+(?=[A-Z][\w-]*(?:-[\w]+)*\s*:)/);
-    if (place) rest = place[1].trim();
-    return { title: eds[1].trim().replace(/[.,\s]+$/, ""), rest };
+    // "Book Title. Place: Publisher" — keep the book title as venue and preserve place/publisher.
+    const placePub = rest.match(/^(.+)[.!?]\s+([A-Za-z][\w .&'()-]*?):\s*(.+)$/);
+    if (placePub) {
+      rest = placePub[1].trim();
+      chapterPlace = placePub[2].trim();
+      chapterPublisher = placePub[3].trim().replace(/,?\s*(?:19|20)\d{2}\.?$/, "");
+    }
+    return { title: eds[1].trim().replace(/[.,\s]+$/, ""), rest, editors, chapterPlace, chapterPublisher };
   }
   const paper = text.match(/^(.{10,300}?)\s*[.!?]\s*Paper Presented at\s+(.+)$/i);
   if (paper) return { title: paper[1].trim().replace(/[.,\s]+$/, ""), rest: paper[2].trim() };
@@ -144,13 +165,15 @@ function publicationKind(text: string): string {
   if (/\breport\b|\bbrief\b|\bdigest\b|\bmemo(randum)?\b/.test(t)) return "report";
   if (/\bthesis\b|\bdissertation\b/.test(t)) return "thesis";
   if (/lecture|seminar|colloquium|conference|symposium|congress|presentation|workshop/.test(t)) return "lecture";
+  // "Unpublished Thesis/MBA Thesis" is caught above; anything else unpublished (e.g. a project) is not journal research.
+  if (/\bunpublished\b/.test(t)) return "unpublished";
   return "journal-article";
 }
 
 function parseEntry(raw: string, section: "Books" | "Articles", index: number): Record<string, unknown> | null {
   const text = clean(raw).replace(TITLE_YEAR, "");
   if (text.length < 15) return null;
-  const { title: rawTitle, rest } = splitTitleVenue(text);
+  const { title: rawTitle, rest, editors, chapterPlace, chapterPublisher } = splitTitleVenue(text);
   const title = rawTitle.replace(/[.,\s]+$/, "").replace(/\s*\((?:19|20)\d{2}[a-z]?\)\.?,?\s*$/, "");
   if (!title || title === rest) return null;
   // The publication year is the last plausible year in the citation; years inside the
@@ -164,7 +187,13 @@ function parseEntry(raw: string, section: "Books" | "Articles", index: number): 
     ?.replace(/\s+/g, "")
     .trim();
   const pages = text.match(/pp\.\s*([\d\-–]+)/)?.[1];
-  const isBook = section === "Books";
+  // The CV files "Education and Development in Imo State" (a commissioned research report) under Books;
+  // classify by content so it groups with the other commissioned reports. Flagged in OPEN_ITEMS.md.
+  const isBook = section === "Books" && !/commissioned research report/i.test(text);
+  const issueMatch = rest.match(/\bVol\.?\s*(\d+)\s*(?:,\s*No\.?\s*(\d+))?\s*(?:\(([^)]*)\))?/i);
+  const issue = issueMatch
+    ? `Vol. ${issueMatch[1]}${issueMatch[2] ? `, No. ${issueMatch[2]}` : ""}${issueMatch[3] ? ` (${issueMatch[3]})` : ""}`
+    : undefined;
   const venue = rest
     .replace(/,?\s*(pp\.?\s*[\d\-–]+).*/i, "")
     .replace(/,?\s*Vol\.?\s*[\d,\sNo.]+.*$/i, "")
@@ -188,6 +217,10 @@ function parseEntry(raw: string, section: "Books" | "Articles", index: number): 
     year,
     kind: isBook ? "book" : publicationKind(text),
     ...(isBook ? {} : { ...(venue ? { venue } : {}), pages, isbn, issn: text.match(/ISSN[\dX\s.-]+/i)?.[0]?.trim() }),
+    ...(editors?.length ? { editors } : {}),
+    ...(chapterPlace ? { place: chapterPlace } : {}),
+    ...(chapterPublisher ? { publisher: chapterPublisher } : {}),
+    ...(issue ? { issue } : {}),
     ...(isBook ? { ...(publisher ? { publisher } : {}), ...(place ? { place } : {}), ...(isbn ? { isbn } : {}) } : {}),
     ...(isBook ? { role: "unknown" } : {}),
     source: SOURCE,
