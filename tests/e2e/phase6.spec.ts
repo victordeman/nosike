@@ -91,6 +91,10 @@ test("contact form shows field errors for invalid input", async ({ page }) => {
 test("media kit shows bios, name forms and headshot downloads", async ({ page }) => {
   await page.goto("/media-kit");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Media kit");
+  await expect(page.getByRole("link", { name: "downloadable PDF" })).toHaveAttribute(
+    "href",
+    "/cv/Nosike-CV-public.pdf",
+  );
   await expect(page.getByText("How to introduce him")).toBeVisible();
   await expect(page.getByText("Nosike, A. N.")).toBeVisible();
   await expect(page.getByRole("button", { name: "Copy short bio" })).toBeVisible();

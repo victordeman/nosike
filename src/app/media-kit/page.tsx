@@ -52,7 +52,14 @@ export default function MediaKitPage() {
         <Prose className="mt-4 max-w-2xl">
           <p>
             Everything here may be used in media coverage. For interviews, images at full resolution or fact
-            checks, use the contact form.
+            checks, use the contact form. The public CV is available as a{" "}
+            <a
+              href="/cv/Nosike-CV-public.pdf"
+              className="text-accent hover:text-accent-strong font-medium underline underline-offset-2"
+            >
+              downloadable PDF
+            </a>
+            .
           </p>
         </Prose>
       </Section>
