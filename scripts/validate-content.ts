@@ -16,6 +16,7 @@ import {
   profileSchema,
   publicationsSchema,
   talksSchema,
+  committeesSchema,
 } from "../src/lib/schemas.ts";
 
 const DIR = join(process.cwd(), "content");
@@ -32,6 +33,7 @@ const FILES: Record<string, { parse: (d: unknown) => unknown }> = {
   "mentorship.json": mentorshipSchemaList,
   "countries.json": countriesSchema,
   "talks.json": talksSchema,
+  "committees.json": committeesSchema,
   "proceedings.json": proceedingsSchema,
   "publications.json": publicationsSchema,
   "images.json": imagesSchema,

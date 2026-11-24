@@ -5,7 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { themeScript } from "@/components/layout/theme-toggle";
-import { site } from "@/lib/site";
+import { ogImage, site } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
@@ -15,6 +15,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: site.name, template: `%s · ${site.name}` },
   description: `${site.name} — ${site.role}.`,
+  openGraph: {
+    siteName: site.name,
+    type: "website",
+    images: [ogImage],
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {

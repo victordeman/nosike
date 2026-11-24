@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import {
   careerSchema,
+  committeesSchema,
   conferencesSchema,
   countriesSchema,
   editorialSchema,
@@ -16,6 +17,7 @@ import {
   publicationsSchema,
   talksSchema,
   type CareerRole,
+  type Committee,
   type Conference,
   type Country,
   type EducationEntry,
@@ -69,6 +71,9 @@ export function getCountries(): Country[] {
 }
 export function getTalks(): Talk[] {
   return loadJson("talks.json", talksSchema);
+}
+export function getCommittees(): Committee[] {
+  return loadJson("committees.json", committeesSchema);
 }
 export function getProceedings(): ProceedVolume[] {
   return loadJson("proceedings.json", proceedingsSchema);

@@ -27,7 +27,16 @@
     "Project management",
     "Social and corporate re-engineering"
   ],
-  "languages": ["English", "Spanish"],
+  "languages": [
+    "English",
+    "Spanish"
+  ],
+  "values": [
+    "Integrity",
+    "Transparency",
+    "Academic excellence",
+    "Ethical leadership"
+  ],
   "affiliatedInstitution": "African Institute of Management, Technology and Development Studies (AIMTDS), Kigali",
   "source": "SPEC.md › Appendix A.1; Short_Biography_of_Prof_Austin_Nosike-WU.docx"
 }
