@@ -7,7 +7,9 @@
     "institution": "Universidad Central de Nicaragua",
     "place": "Nicaragua",
     "dates": "2016",
-    "notes": ["Short biography states the degree was earned with distinction"],
+    "notes": [
+      "Short biography states the degree was earned with distinction"
+    ],
     "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.4"
   },
   {
@@ -39,7 +41,9 @@
     "field": "Entrepreneurship & Innovation",
     "institution": "Universidad Católica San Antonio de Murcia (UCAM)",
     "place": "Murcia, Spain",
-    "notes": ["Field named per the CV; other sources say Management (Appendix C item 5)"],
+    "notes": [
+      "Field named per the CV; other sources say Management (Appendix C item 5)"
+    ],
     "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.4; Appendix C item 5"
   },
   {
@@ -91,7 +95,7 @@
     "place": "Warsaw, Poland",
     "dates": "2004–2005",
     "notes": [
-      "Short biography names Centre for Social Studies, Warsaw, and University of Lancaster, UK — Lancaster omitted pending confirmation (Appendix C item 5)"
+      "Short biography names a Warsaw institution and a UK university — the UK institution is omitted pending confirmation (Appendix C item 5)"
     ],
     "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.4; Appendix C item 5"
   },
