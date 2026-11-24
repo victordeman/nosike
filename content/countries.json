@@ -1,0 +1,121 @@
+[
+  {
+    "name": "Nigeria",
+    "code": "NG",
+    "roles": ["academic-appointment", "consultancy", "events"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.11"
+  },
+  {
+    "name": "Burundi",
+    "code": "BI",
+    "roles": ["academic-appointment"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.11"
+  },
+  {
+    "name": "Zambia",
+    "code": "ZM",
+    "roles": ["academic-appointment"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.11"
+  },
+  {
+    "name": "Rwanda",
+    "code": "RW",
+    "roles": ["academic-appointment"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.11"
+  },
+  {
+    "name": "Uganda",
+    "code": "UG",
+    "roles": ["academic-appointment", "consultancy"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.11"
+  },
+  {
+    "name": "Kenya",
+    "code": "KE",
+    "roles": ["consultancy"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV (resource person); SPEC.md › Appendix A.11"
+  },
+  { "name": "Zimbabwe", "code": "ZW", "roles": [], "source": "SPEC.md › Appendix A.11", "verified": false },
+  { "name": "Malawi", "code": "MW", "roles": [], "source": "SPEC.md › Appendix A.11", "verified": false },
+  {
+    "name": "Namibia",
+    "code": "NA",
+    "roles": ["consultancy"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.11"
+  },
+  { "name": "Tanzania", "code": "TZ", "roles": [], "source": "SPEC.md › Appendix A.11", "verified": false },
+  {
+    "name": "Ethiopia",
+    "code": "ET",
+    "roles": ["academic-appointment", "consultancy"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.11"
+  },
+  {
+    "name": "Spain",
+    "code": "ES",
+    "roles": ["academic-appointment", "study"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.11"
+  },
+  {
+    "name": "Italy",
+    "code": "IT",
+    "roles": ["academic-appointment"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.11"
+  },
+  {
+    "name": "Hungary",
+    "code": "HU",
+    "roles": ["academic-appointment", "study"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.11"
+  },
+  {
+    "name": "Poland",
+    "code": "PL",
+    "roles": ["study"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.11"
+  },
+  {
+    "name": "France",
+    "code": "FR",
+    "roles": ["study"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.11"
+  },
+  {
+    "name": "United Kingdom",
+    "code": "GB",
+    "roles": ["study"],
+    "source": "Short_Biography_of_Prof_Austin_Nosike-WU.docx (University of Lancaster); SPEC.md › Appendix A.11; Appendix C item 5",
+    "verified": false
+  },
+  {
+    "name": "Dominican Republic",
+    "code": "DO",
+    "roles": ["academic-appointment"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.11"
+  },
+  {
+    "name": "Mexico",
+    "code": "MX",
+    "roles": ["study"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.11"
+  },
+  {
+    "name": "Nicaragua",
+    "code": "NI",
+    "roles": ["study"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.11"
+  },
+  {
+    "name": "India",
+    "code": "IN",
+    "roles": ["events"],
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.11"
+  },
+  {
+    "name": "United States",
+    "code": "US",
+    "roles": [],
+    "source": "Short_Biography_of_Prof_Austin_Nosike-WU.docx (Open Christian University, per SB); SPEC.md › Appendix A.11, C item 10",
+    "verified": false
+  }
+]

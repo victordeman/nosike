@@ -1,0 +1,289 @@
+[
+  {
+    "id": "career-jhu-2025",
+    "institution": "James Hope University",
+    "place": "Lekki-Lagos, Nigeria",
+    "country": "Nigeria",
+    "dates": { "start": "2025", "end": "present" },
+    "title": "Vice Chancellor/President; Professor of Entrepreneurship, Marketing and Economics",
+    "subRoles": [
+      "Chairman of Senate",
+      "Chairman, Senior Management Committee",
+      "Member, Governing Council",
+      "Head of Partnership, Innovation and Consultancy"
+    ],
+    "kind": "academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-iue-2023",
+    "institution": "International University of Equator",
+    "place": "Bujumbura, Burundi",
+    "country": "Burundi",
+    "dates": { "start": "2023", "end": "2025" },
+    "title": "Deputy Vice Chancellor (Academics & Research); Professor",
+    "subRoles": [
+      "Vice Chair Senate",
+      "Vice Chair Senior Management Committee",
+      "Chair, Higher Degree Research Committee",
+      "Chair, Senate Committee on Quality Assurance & Resource Mobilization"
+    ],
+    "kind": "academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-copperstone-2021",
+    "institution": "Copperstone University",
+    "place": "Kitwe, Zambia",
+    "country": "Zambia",
+    "dates": { "start": "2021", "end": "2023" },
+    "title": "Deputy Vice Chancellor (Academics & Research); Professor",
+    "subRoles": ["Vice Chair Senate", "Vice Chair Senior Management Committee"],
+    "kind": "academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-kigali-2019",
+    "institution": "University of Kigali",
+    "place": "Kigali, Rwanda",
+    "country": "Rwanda",
+    "dates": { "start": "2019", "end": "2021" },
+    "title": "Dean, School of Graduate Studies; Full Professor of Business & Economics",
+    "subRoles": ["Chair, Senate Committee on Research & Resource Mobilization"],
+    "kind": "academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-miu-2017",
+    "institution": "Metropolitan International University",
+    "place": "Kampala, Uganda",
+    "country": "Uganda",
+    "dates": { "start": "2017", "end": "2019" },
+    "title": "Director of Research, Innovation & Consultancy",
+    "subRoles": [],
+    "kind": "academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-avance-2016",
+    "institution": "Avance International University",
+    "place": "Kampala, Uganda",
+    "country": "Uganda",
+    "dates": { "start": "2016", "end": "2018" },
+    "title": "Full Professor of Management",
+    "subRoles": [],
+    "kind": "academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3",
+    "verified": false
+  },
+  {
+    "id": "career-ballsbridge-2014",
+    "institution": "Ballsbridge University",
+    "place": "Dominican Republic",
+    "country": "Dominican Republic",
+    "dates": { "start": "2014", "end": "2016" },
+    "title": "Director, School of Business & Economics",
+    "subRoles": [],
+    "kind": "academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-mcses-2011",
+    "institution": "Mediterranean Center for Social and Educational Research (Sapienza, Rome)",
+    "place": "Rome, Italy",
+    "country": "Italy",
+    "dates": { "start": "2011", "end": "2014" },
+    "title": "Associate Professor & Director, Globalization & Development Program",
+    "subRoles": [],
+    "kind": "academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-gmi-2008",
+    "institution": "Granada Management Institute",
+    "place": "Granada, Spain",
+    "country": "Spain",
+    "dates": { "start": "2008", "end": "2011" },
+    "title": "Director of Research & Planning",
+    "subRoles": [],
+    "kind": "academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-afroeuro-2005",
+    "institution": "Afro-Euro Centre for Development Studies",
+    "place": "Budapest, Hungary",
+    "country": "Hungary",
+    "dates": { "start": "2005", "end": "2008" },
+    "title": "Senior Research Fellow & Head, Department of Training & Publications",
+    "subRoles": [],
+    "kind": "academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3; Appendix C item 6"
+  },
+  {
+    "id": "career-ami-2003",
+    "institution": "African Management Institute",
+    "place": "Addis Ababa, Ethiopia",
+    "country": "Ethiopia",
+    "dates": { "start": "2003", "end": "2004" },
+    "title": "Visiting Senior Fellow",
+    "subRoles": [],
+    "kind": "academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-dac-1999",
+    "institution": "Development Africa Consortium",
+    "place": "Port Harcourt, Nigeria",
+    "country": "Nigeria",
+    "dates": { "start": "1999", "end": "2005" },
+    "title": "Research Fellow, later Senior Research Fellow & Head of Research and Training",
+    "subRoles": [],
+    "kind": "academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-aice-1996",
+    "institution": "Alvan Ikoku College of Education",
+    "place": "Owerri, Nigeria",
+    "country": "Nigeria",
+    "dates": { "start": "1996", "end": "1999" },
+    "title": "Lecturer, Department of Continuing Education",
+    "subRoles": [],
+    "kind": "academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-kaduna-poly-1993",
+    "institution": "Kaduna Polytechnic",
+    "place": "Kaduna, Nigeria",
+    "country": "Nigeria",
+    "dates": { "start": "1993", "end": "1996" },
+    "title": "Lecturer, Department of Liberal Studies",
+    "subRoles": [],
+    "kind": "academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-nda-1993",
+    "institution": "Nigerian Defence Academy",
+    "place": "Kaduna, Nigeria",
+    "country": "Nigeria",
+    "dates": { "start": "1993", "end": "1995" },
+    "title": "Part-time Lecturer; later Assistant Co-ordinator, Military Geography & Warfare Program",
+    "subRoles": [],
+    "kind": "academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-tedem-1990",
+    "institution": "Technological and Economic Development Mission",
+    "place": "Owerri, Nigeria",
+    "country": "Nigeria",
+    "dates": { "start": "1990", "end": "1991" },
+    "title": "Research Assistant II",
+    "subRoles": [],
+    "kind": "academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-ulk-visiting",
+    "institution": "Kigali Independent University (ULK)",
+    "place": "Kigali, Rwanda",
+    "country": "Rwanda",
+    "dates": { "start": "2020", "end": "2022" },
+    "title": "Visiting Professor",
+    "subRoles": [],
+    "kind": "visiting",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-granada-visiting",
+    "institution": "Granada Management Institute / Universidad de Granada",
+    "place": "Granada, Spain",
+    "country": "Spain",
+    "dates": { "start": "2019", "end": "present" },
+    "title": "Visiting Professor",
+    "subRoles": [],
+    "kind": "visiting",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-ehu-visiting",
+    "institution": "Universidad del País Vasco",
+    "place": "Gipuzkoa, Spain",
+    "country": "Spain",
+    "dates": { "start": "2019", "end": "present" },
+    "title": "Visiting Scholar",
+    "subRoles": [],
+    "kind": "visiting",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-daily-star",
+    "institution": "Daily Star",
+    "place": "Enugu, Nigeria",
+    "country": "Nigeria",
+    "dates": { "start": "1987", "end": "1989" },
+    "title": "Features Writer",
+    "subRoles": [],
+    "kind": "pre-academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-statesman",
+    "institution": "The Statesman",
+    "place": "Owerri, Nigeria",
+    "country": "Nigeria",
+    "dates": { "start": "1989", "end": "1990" },
+    "title": "Staff Writer (Features)",
+    "subRoles": [],
+    "kind": "pre-academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-news-flash",
+    "institution": "News Flash",
+    "place": "Nigeria",
+    "country": "Nigeria",
+    "dates": { "start": "1991", "end": "1992" },
+    "title": "Senior Staff Writer & Acting Assistant Editor (Business)",
+    "subRoles": [],
+    "kind": "pre-academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-jcf-1997",
+    "institution": "J. Charlot & Fyne Ltd",
+    "place": "Nigeria",
+    "country": "Nigeria",
+    "dates": { "start": "1997", "end": "present" },
+    "title": "Principal Partner",
+    "subRoles": [],
+    "kind": "pre-academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-jcf-publishing",
+    "institution": "JCF Publishing",
+    "place": "Nigeria",
+    "country": "Nigeria",
+    "dates": { "start": "1999", "end": "present" },
+    "title": "Managing Director & CEO",
+    "subRoles": [],
+    "kind": "pre-academic",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.3"
+  },
+  {
+    "id": "career-dac-president",
+    "institution": "Development Africa Consortium",
+    "place": "Port Harcourt, Nigeria",
+    "country": "Nigeria",
+    "dates": { "start": "1996", "end": "present" },
+    "title": "President (founded 1996)",
+    "subRoles": [],
+    "kind": "pre-academic",
+    "source": "AIMTDS_1.docx › SPEC.md › Appendix A.3",
+    "verified": false
+  }
+]

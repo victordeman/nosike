@@ -1,0 +1,258 @@
+#!/usr/bin/env node
+/**
+ * Parses the Publications section of the CV docx into content/publications.json.
+ * Dev tool: reads the raw CV from _sources/docs (never committed); output contains only
+ * titles/venues/years — the privacy check gates it before commit.
+ *
+ *   node scripts/extract-cv.ts            # writes content/publications.json + prints a report
+ *   node scripts/extract-cv.ts --check    # report only, do not write
+ */
+import { execFileSync } from "node:child_process";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+
+const ROOT = new URL("..", import.meta.url).pathname;
+const DOCX = join(ROOT, "_sources/docs/Prof_Austin_Nosike_Profile.docx");
+const TXT = join(ROOT, "_sources/text/Prof_Austin_Nosike_Profile.docx.txt");
+const OUT = join(ROOT, "content/publications.json");
+const SOURCE = "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS";
+const FIXES: Array<[RegExp, string]> = [
+  [/lmo State/g, "Imo State"],
+  [/JournaL/g, "Journal"],
+  [/Ref1ection/g, "Reflection"],
+  // The docx glues "Perspectives on Globalization…" onto the previous ISBN, dropping its capital P.
+  [/8482-5erspectives/g, "8482-5\u0000Perspectives"],
+];
+
+const PY = `
+import json, sys, docx
+d = docx.Document(sys.argv[1])
+print(json.dumps([p.text.replace("\\t", " ").strip() for p in d.paragraphs]))
+`;
+
+function readParagraphs(): string[] {
+  try {
+    const out = execFileSync("python3", ["-c", PY, DOCX], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
+    return JSON.parse(out) as string[];
+  } catch {
+    return readFileSync(TXT, "utf8")
+      .split("\n")
+      .map((l) => l.replace(/^\[[^\]]+\]\s*/, "").trim())
+      .filter(Boolean);
+  }
+}
+
+const clean = (s: string) => {
+  let t = s.replace(/\s+/g, " ").trim();
+  for (const [re, v] of FIXES) t = t.replace(re, v);
+  return t;
+};
+
+const TITLE_YEAR = /(?:\((?:19|20)\d{2}\)|[\s,]+(?:19|20)\d{2})\.?$/;
+
+// Words that typically begin the venue/publisher part of a citation.
+const VENUE_WORD =
+  "(?:International|African|Journal|Proceedings?|Press|Publishers?|Monograph|Report|Bulletin|Transactions|Review|Gazette|Annals|Acta|Studies|Letters|Research|Lectures?|Mimeograph|Memorandum|Project|Thesis|Colloquium|Symposium|Congress|Conference|Seminar|Workshop|Association|Institute|Centre|Center|University|Academy|Foundation|Network|Government|Ministry|Department|Office|Mission|Organisation|Organization|Committee|Panel|Trust|Charity|Group|Society|Club|Union|Council|Board|School|College|Polytechnic|Seminary|Cathedral|Mosque|Church|Hospital|Clinic|Bank|Insurance|Company|Corporation|Inc|Ltd|LLC|PLC|Corp|Co|GmbH|SARL|SA|NV|BV|AG|Oy|AB|AS|SpA|Srl|Pty|LLP|LP|LLC|Granada|Sevilla|Oviedo|Istanbul|Port Harcourt|Lagos|Owerri|Kaduna|Umuahia|Nsugbe|Makurdi|Warri|Abuja|Ibadan|Enugu|Onitsha| Aba|Nnewi|Orlu|Okigwe|Aba|Uyo|Calabar|Jos|Ilorin|Bauchi|Maiduguri|Kano|Sokoto|Zaria|Nsukka|Awka|Oyo|Ile-Ife|Benin|Asaba|Delta|Rivers|Cross River|Akwa Ibom|Edo|Ondo|Osun|Ogun|Lagos|Abia|Imo|Anambra|Ebonyi|Enugu|Gombe|Jigawa|Kebbi|Kogi|Kwara|Nasarawa|Niger|Plateau|Sokoto|Taraba|Yobe|Zamfara)";
+const VENUE_RE = new RegExp("[.!?]\\s+(?=" + VENUE_WORD + ")", "g");
+const VENUE_INDICATOR = /\b(?:Vol\.?|No\.?|pp?\.?|ISBN|ISSN|Legal Deposit|ed\.?|eds?\.?|in )\b/i;
+
+function splitTitleVenue(text: string): { title: string; rest: string } {
+  // Book chapters / contributed papers: "Title. In A. Editor (eds) Book Title. Place: Publisher…"
+  const eds =
+    text.match(/^(.{10,400})\s*[.!?"']\s*In\s+[^()]{0,180}?\(\s*eds?\s*\)\s*(.+)$/i) ??
+    text.match(/^(.{10,400})\s+in\s+[A-Z][\w.,&' -]{0,80}?\bet al\.?\s*\(\s*eds?\s*\)\s*(.+)$/i);
+  if (eds) {
+    let rest = eds[2]
+      .replace(/\s*(?:ISBN|ISSN|Legal Deposit|pp?\.?\s*[\d\-–]+|https?:\/\/\S*|www\.\S*|http\/\/\S*).*$/i, "")
+      .trim();
+    const place = rest.match(/^(.+?)[.!?]\s+(?=[A-Z][\w-]*(?:-[\w]+)*\s*:)/);
+    if (place) rest = place[1].trim();
+    return { title: eds[1].trim().replace(/[.,\s]+$/, ""), rest };
+  }
+  const paper = text.match(/^(.{10,300}?)\s*[.!?]\s*Paper Presented at\s+(.+)$/i);
+  if (paper) return { title: paper[1].trim().replace(/[.,\s]+$/, ""), rest: paper[2].trim() };
+  VENUE_RE.lastIndex = 0;
+  let m: RegExpExecArray | null;
+  let last = -1;
+  while ((m = VENUE_RE.exec(text))) {
+    const after = text.slice(m.index + m[0].length, m.index + m[0].length + 120);
+    if (
+      VENUE_INDICATOR.test(after) ||
+      /[A-Z][a-z]+ (?:Journal|Press|Publishers?|University|Institute|Centre|Center|Association|Conference|Monograph|Report|Bulletin|Review|Gazette|Annals|Acta|Studies|Letters|Research|Lectures?|Mimeograph|Memorandum|Project|Thesis|Colloquium|Symposium|Congress|Seminar|Workshop)/.test(
+        after,
+      )
+    ) {
+      last = m.index;
+      break;
+    }
+  }
+  if (last >= 0) return { title: text.slice(0, last + 1), rest: text.slice(last + 1).trim() };
+  // Comma-separated venue with no preceding period (e.g. "Title, Journal Name, Vol…").
+  // Titles contain commas too, so only split where a venue name starts right after the comma.
+  const VENUE_START =
+    /^\s*(?:[A-Z][\w&'.-]*\s+){0,4}(?:International|African|Journal|Proceedings?|Press|Publishers?|Review|Gazette|Bulletin|Transactions|Annals|Acta|Studies|Letters|Research|Monograph|Report|Magazine|Quarterly|Monthly|Weekly|Herald|Times|Post|Tribune|Observer|Chronicle|Standard|Mirror|Sun|Star|Guardian|Voice|Echo|Pilot|Record|Dispatch|Courier|Inquirer|Ledger)\b/;
+  const commaRe = /,/g;
+  let cm: RegExpExecArray | null;
+  while ((cm = commaRe.exec(text))) {
+    if (VENUE_START.test(text.slice(cm.index + 1, cm.index + 90))) {
+      return { title: text.slice(0, cm.index), rest: text.slice(cm.index + 1).trim() };
+    }
+  }
+  // Book citations: "Title (year). Place: Publisher…"
+  const placePub = /[.!?]\s+(?=[A-Z][\w-]*(?:\s+[A-Z][\w-]*){0,3}\s*:\s)/g;
+  let pm: RegExpExecArray | null;
+  let plast = -1;
+  while ((pm = placePub.exec(text))) plast = pm.index;
+  if (plast >= 0) return { title: text.slice(0, plast + 1), rest: text.slice(plast + 1).trim() };
+  return { title: text, rest: "" };
+}
+
+function publicationKind(text: string): string {
+  const t = text.toLowerCase();
+  if (/\bproceedings?\b/.test(t)) return "conference-paper";
+  if (/\bjournal\b/.test(t)) return "journal-article";
+  if (/\(eds\)|\(ed\)|\bin\s+[A-Z][a-z.]+\s+[A-Z][a-z]+\s+et\s+al\b/.test(t)) return "book-chapter";
+  if (/\bmonograph\b/.test(t)) return "monograph";
+  if (/\breport\b|\bbrief\b|\bdigest\b|\bmemo(randum)?\b/.test(t)) return "report";
+  if (/\bthesis\b|\bdissertation\b/.test(t)) return "thesis";
+  if (/lecture|seminar|colloquium|conference|symposium|congress|presentation|workshop/.test(t)) return "lecture";
+  return "journal-article";
+}
+
+function parseEntry(raw: string, section: "Books" | "Articles", index: number): Record<string, unknown> | null {
+  const text = clean(raw).replace(TITLE_YEAR, "");
+  if (text.length < 15) return null;
+  const { title: rawTitle, rest } = splitTitleVenue(text);
+  const title = rawTitle
+    .replace(/[.,\s]+$/, "")
+    .replace(/\s*\((?:19|20)\d{2}[a-z]?\)\.?,?\s*$/, "")
+    .replace(/[\s,]+(?:19|20)\d{2}\.?$/, "");
+  if (!title || title === rest) return null;
+  const years = [...new Set([...raw.matchAll(/\b(?:19|20)\d{2}\b/g)].map((m) => Number(m[0])))].filter(
+    (y) => y >= 1985 && y <= 2026,
+  );
+  const inTitle = raw.match(/\((?:19|20)\d{2}\)|[\s,]+(?:19|20)\d{2}/)?.[0].replace(/\D/g, "");
+  const year = years.length ? Math.min(...years) : inTitle ? Number(inTitle) : null;
+  const isbn = text
+    .match(/ISBN:?\s*(97[89][\d\- ]{9,}|\d{3}-\d-[\d-]+\d|\d{10})/i)?.[1]
+    ?.replace(/\s+/g, "")
+    .trim();
+  const pages = text.match(/pp\.\s*([\d\-–]+)/)?.[1];
+  const isBook = section === "Books";
+  const venue = rest
+    .replace(/,?\s*(pp\.?\s*[\d\-–]+).*/i, "")
+    .replace(/,?\s*Vol\.?\s*[\d,\sNo.]+.*$/i, "")
+    .replace(/[,\s]+(?:19|20)\d{2}\.?$/, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  const place = venue.includes(":") ? venue.split(":")[0].trim() : undefined;
+  const publisher = venue.includes(":")
+    ? venue
+        .split(":")
+        .slice(1)
+        .join(":")
+        .split(/\.\s+(?=(?:Legal Deposit|ISBN|ISSN|http))/i)[0]
+        .replace(/\.+$/, "")
+        .trim()
+    : undefined;
+  return {
+    id: `pub-${String(index + 1).padStart(3, "0")}`,
+    title,
+    authors: [],
+    year,
+    kind: isBook ? "book" : publicationKind(text),
+    ...(isBook ? {} : { ...(venue ? { venue } : {}), pages, isbn, issn: text.match(/ISSN[\dX\s.-]+/i)?.[0]?.trim() }),
+    ...(isBook ? { ...(publisher ? { publisher } : {}), ...(place ? { place } : {}), ...(isbn ? { isbn } : {}) } : {}),
+    ...(isBook ? { role: "unknown" } : {}),
+    source: SOURCE,
+  };
+}
+
+const paras = readParagraphs();
+const start = paras.findIndex((p) => p.trim().toUpperCase() === "PUBLICATIONS");
+const end = paras.findIndex((p, i) => i > start && p.trim().toUpperCase() === "REFEREES");
+if (start < 0 || end < 0) throw new Error("PUBLICATIONS section not found in CV");
+
+// Join continuation paragraphs (venue details on the next line) into the previous entry.
+const rawEntries: Array<{ section: "Books" | "Articles"; text: string }> = [];
+let section: "Books" | "Articles" | "" = "";
+for (const p of paras.slice(start + 1, end)) {
+  const t = p.trim();
+  if (/^Books$/i.test(t)) {
+    section = "Books";
+    continue;
+  }
+  if (/Journal Publications\/Book Chapters/i.test(t)) {
+    section = "Articles";
+    continue;
+  }
+  if (!t || !section) continue;
+  const prev = rawEntries.at(-1);
+  const dangling = prev && /(,|\b(?:and|the|of|in|on|for|to|with|a|an|et|al)\.?|\()$/i.test(prev.text);
+  const fragNext = /^[A-Z][a-z]+\.\s+[A-Z][\w-]+(?:-[\w]+)*:/.test(t);
+  const venueOnly =
+    /^(?:Journal|Proceedings?|African Journal|International Journal|Press|Publishers?|Monograph|Report|Bulletin|Transactions|Review|Gazette|Annals|Acta|Studies|Letters|Research|Lectures?|Mimeograph|Memorandum|Project|Thesis|Colloquium|Symposium|Congress|Conference|Seminar|Workshop)\b/.test(
+      t,
+    );
+  const lower = /^[a-z"'(]/.test(t);
+  if (prev && prev.section === section && venueOnly) prev.text = `${prev.text} ${t}`;
+  else if (prev && prev.section === section && !/[.!?\d]$/.test(prev.text) && (lower || dangling || fragNext))
+    prev.text = `${prev.text} ${t}`;
+  else rawEntries.push({ section, text: t });
+}
+
+// Some CV paragraphs hold two entries ("…1994. Title. Journal Name, Vol…"). Split them.
+const MERGE_RE =
+  /(?<=[.!?])\s+(?=[A-Z][\w ,&'()-]{5,140}?\.\s+(?:[A-Z][\w&'.-]*\s+){0,3}(?:International\s+|African\s+)?(?:Journal|Proceedings?|Press|Publishers?|Review|Gazette|Bulletin|Transactions|Annals|Acta|Studies|Letters|Research|Monograph|Report)\b)/;
+function splitMerged(entry: {
+  section: "Books" | "Articles";
+  text: string;
+}): Array<{ section: "Books" | "Articles"; text: string }> {
+  const parts = entry.text
+    .split(MERGE_RE)
+    .flatMap((x) => x.split("\u0000"))
+    .map((x) => x.trim())
+    .filter(Boolean);
+  return parts.length > 1 ? parts.map((text) => ({ section: entry.section, text })) : [entry];
+}
+const expanded = rawEntries.flatMap((e) => splitMerged({ section: e.section, text: clean(e.text) }));
+
+const parsed: Record<string, unknown>[] = [];
+const skipped: string[] = [];
+let idx = 0;
+for (const { section: sec, text: entry } of expanded) {
+  idx += 1;
+  const rec = parseEntry(entry, sec, idx);
+  if (rec) parsed.push(rec);
+  else skipped.push(entry.slice(0, 80));
+}
+
+const seen = new Map<string, number>();
+const duplicates: string[] = [];
+for (const p of parsed) {
+  const key = String(p.title)
+    .toLowerCase()
+    .replace(/[^a-z0-9 ]/g, "")
+    .slice(0, 140);
+  if (seen.has(key)) duplicates.push(`${p.id} ~ ${seen.get(key)}: ${String(p.title).slice(0, 60)}`);
+  else seen.set(key, Number(String(p.id).slice(4)));
+}
+const noYear = parsed.filter((p) => p.year === null).map((p) => `${p.id} ${String(p.title).slice(0, 70)}`);
+const report = {
+  parsed: parsed.length,
+  books: parsed.filter((p) => p.kind === "book").length,
+  skipped,
+  noYear,
+  duplicates,
+  byKind: parsed.reduce<Record<string, number>>(
+    (a, p) => ({ ...a, [String(p.kind)]: (a[String(p.kind)] ?? 0) + 1 }),
+    {},
+  ),
+};
+
+if (process.argv.includes("--check")) console.log(JSON.stringify(report, null, 2));
+else {
+  mkdirSync(join(ROOT, "content"), { recursive: true });
+  writeFileSync(OUT, JSON.stringify(parsed, null, 2) + "\n");
+  console.log(`Wrote ${parsed.length} publications to content/publications.json\n${JSON.stringify(report, null, 2)}`);
+}

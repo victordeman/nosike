@@ -1,0 +1,82 @@
+[
+  {
+    "code": "ICTL2012",
+    "title": "International Conference on Teaching and Learning, Vol. 1",
+    "fullTitle": "Proceedings of the International Conference on Teaching and Learning (ICTL2012), Vol. 1",
+    "dates": "23–27 October 2012",
+    "venue": "Abuja, Nigeria",
+    "publisher": "International Association for Teaching and Learning (IATEL), Granada",
+    "pages": 236,
+    "role": "Lead editor; Project Director",
+    "identifiers": ["ISSN 2224-946X", "Legal Deposit MU-705-2012"],
+    "papers": [],
+    "status": "verified",
+    "source": "ICTL2012 Book of Proceedings PDF (title page); SPEC.md › Appendix A.7"
+  },
+  {
+    "code": "ICSTE2012",
+    "title": "International Conference on Science and Technology Education, Vol. 1",
+    "fullTitle": "ICSTE2012 Book of Proceedings, Vol. 1",
+    "dates": "22–26 October 2012",
+    "venue": "Alvan Ikoku Federal College of Education, Owerri",
+    "publisher": "International Association for Teaching and Learning (IATEL), Granada",
+    "pages": 343,
+    "role": "Lead editor; Project Director",
+    "identifiers": ["Legal Deposit MU-706-2012"],
+    "papers": [],
+    "status": "pending",
+    "source": "ICSTE2012 proceedings PDF (title page); SPEC.md › Appendix A.7, C item 7 (printed ISBN 978-84-612-8486-3 disputed — hidden until verified)"
+  },
+  {
+    "code": "ICASE2013",
+    "title": "International Conference on Agriculture, Science and Engineering",
+    "fullTitle": "ICASE2013 Book of Proceedings",
+    "dates": "1–4 July 2013",
+    "venue": "Federal College of Education (Technical), Umunze, Anambra State",
+    "publisher": "Beverly Scientific Organisation, Granada",
+    "pages": 237,
+    "role": "Editor; Conference Director",
+    "identifiers": ["Legal Deposit MU-0704-2012"],
+    "papers": [
+      {
+        "title": "Co-operative Occupational Education: A Strategy for Preparing Youths for Employment in Agriculture",
+        "coAuthors": ["Ephraim A. Orikpe"]
+      }
+    ],
+    "status": "pending",
+    "source": "ICASE2013 proceedings PDF (title page); SPEC.md › Appendix A.7, C item 7 (printed ISBN 978-84-612-8486-3 duplicated from ICSTE2012 — hidden until verified)"
+  },
+  {
+    "code": "ICESR2013",
+    "title": "International Conference on Environmental Studies and Research",
+    "fullTitle": "ICESR2013 Proceedings",
+    "dates": "1–4 July 2013",
+    "venue": "Federal College of Education (Technical), Umunze, Anambra State",
+    "publisher": "Beverly Scientific Organisation, Granada",
+    "pages": 287,
+    "role": "Editor; Project Director",
+    "identifiers": ["ISBN 978-84-612-8488-7", "Legal Deposit MU-0702-2012"],
+    "papers": [
+      {
+        "title": "Sustainability as a Strategy of Responsible and Competitive Development",
+        "coAuthors": ["José G. Vargas-Hernández"]
+      }
+    ],
+    "status": "verified",
+    "source": "ICESR2013 proceedings PDF (title page); SPEC.md › Appendix A.7"
+  },
+  {
+    "code": "IIC2013",
+    "title": "International Interdisciplinary Conference on Education and Development",
+    "fullTitle": "IIC2013 Book of Proceedings",
+    "dates": "1–4 July 2013",
+    "venue": "Umunze, Anambra State",
+    "publisher": "International Association for Teaching and Learning (IATEL), Granada",
+    "pages": 352,
+    "role": "Editor; General Coordinator",
+    "identifiers": [],
+    "papers": [],
+    "status": "verified",
+    "source": "IIC2013 proceedings PDF (title page); SPEC.md › Appendix A.7"
+  }
+]

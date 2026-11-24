@@ -1,0 +1,65 @@
+[
+  {
+    "id": "men-phd-completed",
+    "topic": "Doctoral (PhD) supervision",
+    "role": "Supervisor — candidates graduated",
+    "detail": "12 PhD candidates supervised to completion",
+    "source": "Prof_Austin_Nosike_Profile.docx › profile; SPEC.md › Appendix A.2"
+  },
+  {
+    "id": "men-masters-completed",
+    "topic": "Master's supervision",
+    "role": "Supervisor — candidates graduated",
+    "detail": "38 Master's candidates supervised to completion",
+    "source": "Prof_Austin_Nosike_Profile.docx › profile; SPEC.md › Appendix A.2"
+  },
+  {
+    "id": "men-phd-current",
+    "topic": "Doctoral (PhD) supervision",
+    "role": "Supervisor — current candidates",
+    "detail": "4 doctoral candidates under current supervision",
+    "source": "Prof_Austin_Nosike_Profile.docx › profile; SPEC.md › Appendix A.2"
+  },
+  {
+    "id": "men-masters-current",
+    "topic": "Master's supervision",
+    "role": "Supervisor — current candidates",
+    "detail": "7 Master's candidates under current supervision",
+    "source": "Prof_Austin_Nosike_Profile.docx › profile; SPEC.md › Appendix A.2"
+  },
+  {
+    "id": "men-buse-external",
+    "topic": "External assessment — professorial and postgraduate",
+    "role": "External Assessor/Examiner",
+    "detail": "Bindura University of Science Education (BUSE)",
+    "source": "Short_Biography_of_Prof_Austin_Nosike-WU.docx; SPEC.md › Appendix C / Phase 5 task 2"
+  },
+  {
+    "id": "men-cut-external",
+    "topic": "External assessment — professorial and postgraduate",
+    "role": "External Assessor/Examiner",
+    "detail": "Chinhoyi University of Technology (CUT)",
+    "source": "Short_Biography_of_Prof_Austin_Nosike-WU.docx; SPEC.md › Appendix C / Phase 5 task 2"
+  },
+  {
+    "id": "men-utamu-external",
+    "topic": "External assessment — professorial and postgraduate",
+    "role": "External Assessor/Examiner",
+    "detail": "Uganda Management and Technology University (UTAMU)",
+    "source": "Short_Biography_of_Prof_Austin_Nosike-WU.docx; SPEC.md › Appendix C / Phase 5 task 2"
+  },
+  {
+    "id": "men-promotions-18",
+    "topic": "Professorial promotion assessments",
+    "role": "External Assessor/Examiner",
+    "detail": "18 professorial promotion assessments claimed in the CV — pending client confirmation (SPEC.md › Appendix A.2, C item 3); do not headline",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; SPEC.md › Appendix A.2"
+  },
+  {
+    "id": "men-nche-audit",
+    "topic": "University quality audit (external)",
+    "role": "Chairperson, University Audit Panel",
+    "detail": "National Council for Higher Education, Namibia, 2024",
+    "source": "Prof_Austin_Nosike_Profile.docx › CV; Short_Biography_of_Prof_Austin_Nosike-WU.docx"
+  }
+]
