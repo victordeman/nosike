@@ -84,6 +84,10 @@ export async function deliverEnquiry(e: Enquiry): Promise<{ mode: "mock" | "rese
     await sendViaResend(e);
     return { mode: "resend" };
   }
+  if (process.env.NODE_ENV === "production") {
+    // Never silently discard a real enquiry: fail loudly so the sender sees an error.
+    throw new Error("Contact transport is not configured (RESEND_API_KEY/CONTACT_TO_EMAIL/CONTACT_FROM_EMAIL)");
+  }
   console.info(`[contact] no transport configured; enquiry (${e.enquiryType}) from ${e.name} <${e.email}>`);
   return { mode: "log" };
 }
