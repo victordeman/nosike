@@ -13,6 +13,11 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   description: `${site.role}. Economist and global management scholar — university leadership, scholarship and public policy.`,
+  openGraph: {
+    title: site.name,
+    description: `${site.role}. Economist and global management scholar — university leadership, scholarship and public policy.`,
+    url: site.url,
+  },
 };
 
 const HIGHLIGHTS = [

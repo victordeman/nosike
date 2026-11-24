@@ -11,6 +11,11 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About",
   description: `Biography of ${site.name} — ${site.role}. Research interests, languages and values.`,
+  openGraph: {
+    title: `About · ${site.name}`,
+    description: `Biography of ${site.name} — ${site.role}. Research interests, languages and values.`,
+    url: `${site.url}/about`,
+  },
 };
 
 export default function AboutPage() {

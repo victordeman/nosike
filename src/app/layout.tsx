@@ -16,9 +16,6 @@ export const metadata: Metadata = {
   title: { default: site.name, template: `%s · ${site.name}` },
   description: `${site.name} — ${site.role}.`,
   openGraph: {
-    title: site.name,
-    description: `${site.name} — ${site.role}.`,
-    url: site.url,
     siteName: site.name,
     type: "website",
     images: [{ url: "/og-default.png", width: 1200, height: 630, alt: site.name }],

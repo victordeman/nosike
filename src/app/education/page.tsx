@@ -8,6 +8,11 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Education",
   description: `Degrees, fellowships and professional memberships of ${site.name}.`,
+  openGraph: {
+    title: `Education · ${site.name}`,
+    description: `Degrees, fellowships and professional memberships of ${site.name}.`,
+    url: `${site.url}/education`,
+  },
 };
 
 const GROUPS: { level: string; title: string; blurb: string }[] = [

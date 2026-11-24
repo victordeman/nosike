@@ -11,6 +11,11 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Leadership",
   description: `Career record of ${site.name}: university executive roles, governance committees and institution-building across Africa, Europe and the Americas.`,
+  openGraph: {
+    title: `Leadership · ${site.name}`,
+    description: `Career record of ${site.name}: university executive roles, governance committees and institution-building across Africa, Europe and the Americas.`,
+    url: `${site.url}/leadership`,
+  },
 };
 
 const INSTITUTION_BUILDING = ["Development Africa Consortium", "JCF Publishing", "J. Charlot & Fyne Ltd"];
