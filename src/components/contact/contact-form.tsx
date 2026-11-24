@@ -197,7 +197,7 @@ export function ContactForm() {
         ) : null}
       </div>
 
-      <fieldset>
+      <fieldset aria-describedby={errors.enquiryType ? "contact-enquiry-error" : undefined}>
         <legend className={labelClass}>Enquiry type</legend>
         <div className="grid gap-2 sm:grid-cols-2">
           {ENQUIRY_TYPES.map((type) => (
@@ -220,7 +220,9 @@ export function ContactForm() {
           ))}
         </div>
         {errors.enquiryType ? (
-          <p className={errorClass}>{errors.enquiryType}</p>
+          <p id="contact-enquiry-error" className={errorClass}>
+            {errors.enquiryType}
+          </p>
         ) : null}
       </fieldset>
 
