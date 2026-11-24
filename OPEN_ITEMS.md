@@ -30,7 +30,18 @@ Update the **Status** section below as decisions arrive; never resolve a conflic
 - **Bios:** `content/bio-short.mdx` (103 words) and `content/bio-long.mdx` (473 words) are edited from the supplied biographies with excluded items removed (religion, family, referees, personal contacts, the "NUL" claim, disputed counts) and carry `approval: client approval pending`. Word limits and the approval flag are enforced by `scripts/validate-content.ts` during `npm run build`.
 - **Photos:** 22 of 25 supplied images optimised (3 excluded per Appendix B: awkward crop, legible framed official portraits, low-angle selfie). All outputs are EXIF-stripped; the five Appendix B crop notes (framed portraits behind #10, #20, S2, S3, and tiny background frames #21) are applied as fractional crops before resizing, and `content/images.json` records `file` (base name), `widths`, `width`/`height`, `alt`, `role` and focal point.
 
+## Phase 4 notes (for Gate 4 review)
+
+- **Theme tagging:** `content/themes.json` is the reviewable keyword map. Matching is title-only, case-insensitive, word-boundary. 106 of 108 publications match at least one of the six spec themes; **2 are tagged "Other"** and listed below. Themes per publication: economics 67, education 42, management-finance 33, environment 23, gender & development 16, ICT 3.
+- **Tagged "Other" (review the keyword map or re-classify):**
+  - *An Ideal Republic* (book)
+  - *United Nations, Humankind and Proliferation of Dangerous Weapons* (journal article)
+- **Events discrepancy handled per Appendix C item 7:** `conf-rsu-2012` (CV's "September 2012, Rivers State University") now displays dates "September 2012 (per CV)" and keeps its pending badge; the proceedings-verified 1–4 July 2013 Umunze entries stand as their own records. Venue discrepancy noted in the Phase 2 report remains open for the client.
+- **Search index:** `scripts/build-search-index.ts` (part of `npm run build`) writes `public/search-index.json` (gitignored) from the same 108 records; the explorer lazy-loads it together with Fuse.js on first search.
+- **Proceedings downloads:** `proceedingsPdfUrl` is optional in the schema and empty for all five volumes — the Download PDF button renders only when the client approves hosting (Vercel Blob, never Git).
+
 ## Status log
 
 - Phase 0: items seeded; all defaults applied.
 - Phase 2: content model populated; data report above awaits Gate 2 client review.
+- Phase 4: scholarship explorer, editorial block, proceedings and events pages built; theme tags and events discrepancies above await Gate 4 client review.

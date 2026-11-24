@@ -159,6 +159,7 @@ export const proceedVolumeSchema = z.object({
   role: z.string(),
   identifiers: z.array(z.string()),
   papers: z.array(z.object({ title: z.string(), coAuthors: z.array(z.string()).default([]) })),
+  proceedingsPdfUrl: z.string().optional(),
   status: z.enum(["verified", "pending"]),
   ...provenance,
 });

@@ -30,3 +30,6 @@ next-env.d.ts
 # OS / editor
 .DS_Store
 *.log
+
+# Generated at build time (scripts/build-search-index.ts)
+public/search-index.json
