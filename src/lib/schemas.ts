@@ -115,6 +115,7 @@ export const mentorshipSchema = z.object({
   topic: z.string(),
   role: z.string(),
   detail: z.string().optional(),
+  status: z.enum(["approved", "pending"]).default("approved"),
   ...provenance,
 });
 export const mentorshipSchemaList = z.array(mentorshipSchema);
@@ -135,6 +136,7 @@ export const talkSchema = z.object({
   date: z.string(),
   venue: z.string(),
   kind: z.enum(["lecture", "conference", "talk", "presentation"]),
+  abstract: z.string().optional(),
   status: z.enum(["verified", "pending"]),
   ...provenance,
 });
@@ -218,6 +220,7 @@ export const imageSchema = z.object({
   focalY: z.number().min(0).max(1),
   alt: z.string().min(10),
   role: z.enum(["hero", "regalia", "gallery", "about", "talks", "excluded"]),
+  galleryCategory: z.enum(["portraits", "academic", "engagements"]).optional(),
   sourceFile: z.string(),
 });
 export const imagesSchema = z.array(imageSchema);
