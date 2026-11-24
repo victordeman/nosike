@@ -33,6 +33,7 @@ export default function LeadershipPage() {
             period: period(jhu.dates.start, jhu.dates.end),
             title: partnershipRole,
             detail: `${jhu.institution}, ${jhu.place}, ${jhu.country}`,
+            verified: jhu.verified,
           },
         ]
       : []),
@@ -41,6 +42,7 @@ export default function LeadershipPage() {
       period: period(r.dates.start, r.dates.end),
       title: r.title,
       detail: `${r.institution}, ${r.place}, ${r.country}`,
+      verified: r.verified,
     })),
   ];
 
@@ -87,7 +89,15 @@ export default function LeadershipPage() {
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
           {foundingCards.map((role) => (
             <Card key={role.key}>
-              <p className="text-gold text-sm font-semibold">{role.period}</p>
+              <p className="text-gold text-sm font-semibold">
+                {role.period}
+                {role.verified === false ? (
+                  <>
+                    {" "}
+                    <Badge tone="gold">Pending confirmation</Badge>
+                  </>
+                ) : null}
+              </p>
               <h3 className="mt-1 text-lg font-semibold">{role.title}</h3>
               <p className="text-ink-muted mt-1 text-sm">{role.detail}</p>
             </Card>

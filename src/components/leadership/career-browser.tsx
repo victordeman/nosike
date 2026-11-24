@@ -55,7 +55,15 @@ export function CareerBrowser({ roles }: { roles: CareerRole[] }) {
                 aria-hidden
                 className="border-accent bg-paper absolute top-2 -left-[1.95rem] size-3 rounded-full border-2"
               />
-              <p className="text-gold text-sm font-semibold">{period(role)}</p>
+              <p className="text-gold text-sm font-semibold">
+                {period(role)}
+                {role.verified === false ? (
+                  <>
+                    {" "}
+                    <Badge tone="gold">Pending confirmation</Badge>
+                  </>
+                ) : null}
+              </p>
               <h3 className="mt-1 text-lg font-semibold">{role.title}</h3>
               <p className="text-ink-muted text-sm">
                 {role.institution} · {role.place}, {role.country}
