@@ -36,7 +36,7 @@ Update the **Status** section below as decisions arrive; never resolve a conflic
 - **Tagged "Other" (review the keyword map or re-classify):**
   - *An Ideal Republic* (book)
   - *United Nations, Humankind and Proliferation of Dangerous Weapons* (journal article)
-- **Events discrepancy handled per Appendix C item 7:** `conf-rsu-2012` (CV's "September 2012, Rivers State University") now displays dates "September 2012 (per CV)" and keeps its pending badge; the proceedings-verified 1–4 July 2013 Umunze entries stand as their own records. Venue discrepancy noted in the Phase 2 report remains open for the client.
+- **Events discrepancy handled per Appendix C item 7:** the CV-only `conf-rsu-2012` entry ("September 2012, Rivers State University") is **removed from `content/conferences.json`** until the client resolves it — its dates and venue conflict with the proceedings-verified 1–4 July 2013 FCE(T) Umunze records, and the spec allows only source-consistent dates/venues on display. The proceedings-backed ICTL/ICSTE/ICASE/ICESR/IIC 2012–2013 records carry the verified dates.
 - **Search index:** `scripts/build-search-index.ts` (part of `npm run build`) writes `public/search-index.json` (gitignored) from the same 108 records; the explorer lazy-loads it together with Fuse.js on first search.
 - **Proceedings downloads:** `proceedingsPdfUrl` is optional in the schema and empty for all five volumes — the Download PDF button renders only when the client approves hosting (Vercel Blob, never Git).
 

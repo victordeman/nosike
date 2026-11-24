@@ -46,5 +46,5 @@ test("events page filters by role", async ({ page }) => {
   await page.getByRole("button", { name: "Scientific committee" }).press("Enter");
   await expect(page.getByRole("list", { name: "Events timeline" }).getByRole("listitem")).toHaveCount(1);
   await page.getByRole("button", { name: "All roles" }).press("Enter");
-  await expect(page.getByRole("list", { name: "Events timeline" }).getByRole("listitem")).toHaveCount(14);
+  await expect(page.getByRole("list", { name: "Events timeline" }).getByRole("listitem")).toHaveCount(13);
 });
