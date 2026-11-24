@@ -15,7 +15,8 @@
     "test:e2e": "playwright test",
     "privacy": "node scripts/check-privacy.ts",
     "privacy:build": "node scripts/check-privacy.ts .next/server/app",
-    "prepare": "simple-git-hooks"
+    "prepare": "simple-git-hooks",
+    "cv:pdf": "node scripts/build-cv-pdf.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

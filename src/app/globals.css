@@ -16,6 +16,7 @@
   --gold: #7a5c17;
   --gold-soft: #c9a54e;
   --focus: #1f5135;
+  --danger: #b3261e;
   color-scheme: light;
 }
 
@@ -32,6 +33,7 @@
   --gold: #d9b65e;
   --gold-soft: #a8873a;
   --focus: #9ad6b2;
+  --danger: #f2b8b5;
   color-scheme: dark;
 }
 
@@ -47,6 +49,7 @@
   --color-accent-contrast: var(--accent-contrast);
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
+  --color-danger: var(--danger);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-source-serif), ui-serif, Georgia, serif;
 }
