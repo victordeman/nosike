@@ -1,6 +1,7 @@
 /** Validates every file in content/ against its Zod schema; run as part of `npm run build`. */
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import { z } from "zod";
 import {
   careerSchema,
   conferencesSchema,
@@ -34,6 +35,9 @@ const FILES: Record<string, { parse: (d: unknown) => unknown }> = {
   "countries.json": countriesSchema,
   "talks.json": talksSchema,
   "committees.json": committeesSchema,
+  "themes.json": z.object({
+    themes: z.array(z.object({ id: z.string(), label: z.string(), keywords: z.array(z.string()) })),
+  }),
   "proceedings.json": proceedingsSchema,
   "publications.json": publicationsSchema,
   "images.json": imagesSchema,

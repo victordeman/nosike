@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/validate-content.ts && next build",
+    "build": "node scripts/validate-content.ts && node scripts/build-search-index.ts && next build",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
@@ -21,6 +21,7 @@
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.1.0",
     "d3-geo": "^3.1.2",
+    "fuse.js": "^7.5.0",
     "next": "16.4.6",
     "react": "19.3.0",
     "react-dom": "19.3.0",

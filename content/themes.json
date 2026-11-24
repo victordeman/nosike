@@ -1,0 +1,58 @@
+{
+  "comment": "Reviewable keyword map for publication themes (SPEC Phase 4). Matched case-insensitively on word boundaries against the publication title only. A publication may carry several themes; unmatched items are tagged 'other' and listed in OPEN_ITEMS.md.",
+  "themes": [
+    {
+      "id": "economics",
+      "label": "Economics",
+      "keywords": [
+        "economic", "economy", "economic development", "globalization", "globalisation", "globalized", "globalised",
+        "monetary", "inflation", "investment", "petroleum", "oil", "trade", "market", "labour market", "employment",
+        "job opportunities", "adjustment", "reform", "privatization", "liberalization", "debt", "cooperatives",
+        "rural development", "urbanization", "urbanisation", "demographic", "spatial", "political economy",
+        "resource management", "development", "nation building", "nation-building", "state creation", "local government",
+        "public policy", "social policy", "poverty", "labour", "labor"
+      ]
+    },
+    {
+      "id": "education",
+      "label": "Education",
+      "keywords": [
+        "education", "educational", "school", "schools", "teacher", "teachers", "student", "students", "university",
+        "universities", "higher education", "learning", "literacy", "curriculum", "child", "children", "youth", "training",
+        "instruction", "academic"
+      ]
+    },
+    {
+      "id": "gender-development",
+      "label": "Gender & development",
+      "keywords": ["gender", "women", "woman", "widowhood", "female"]
+    },
+    {
+      "id": "environment",
+      "label": "Environment",
+      "keywords": [
+        "environment", "environmental", "niger delta", "ecology", "human ecology", "health", "water", "sanitation",
+        "watsan", "aids", "disease", "food production", "climate", "agriculture", "agro", "forest", "sustainable"
+      ]
+    },
+    {
+      "id": "management-finance",
+      "label": "Management & finance",
+      "keywords": [
+        "management", "managerial", "finance", "financial", "budget", "budgeting", "cash management", "credit",
+        "corporate", "organizational", "organisational", "human resource", "staff", "motivation",
+        "performance appraisal", "leadership", "quality management", "total quality", "leasing", "marketing",
+        "small business", "private sector", "public sector", "business", "enterprise", "productivity", "career",
+        "personnel", "administration"
+      ]
+    },
+    {
+      "id": "ict",
+      "label": "ICT",
+      "keywords": [
+        "ict", "information communication technology", "information technology", "information and communication technology",
+        "digital"
+      ]
+    }
+  ]
+}
