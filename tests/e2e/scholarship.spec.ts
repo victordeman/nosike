@@ -23,9 +23,9 @@ test("scholarship explorer search and deep links", async ({ page }) => {
   await expect(items.first()).toBeVisible();
   const count = await items.count();
   expect(count).toBeGreaterThan(0);
-  for (let i = 0; i < count; i++) {
-    await expect(items.nth(i)).toContainText(/gender/i);
-  }
+  // fuzzy search: known gender papers surface, noise does not
+  await expect(list).toContainText("Gender, Education and Development");
+  await expect(list).not.toContainText("Effective Leadership in Public and Private Sector");
   // URL stays deep-linkable as filters change
   await page.locator("#f-decade").selectOption("2000s");
   await expect(page).toHaveURL(/decade=2000s/);

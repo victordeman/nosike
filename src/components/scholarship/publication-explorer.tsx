@@ -54,7 +54,7 @@ export function PublicationExplorer({
           fetch("/search-index.json").then((r) => (r.ok ? r.json() : Promise.reject(new Error("no index")))),
         ]);
         const docs = (res as { items: SearchDoc[] }).items;
-        const fuse = new Fuse(docs, { keys: ["title", "authors", "venue"], threshold: 0.35, ignoreLocation: true });
+        const fuse = new Fuse(docs, { keys: ["title", "authors", "venue"], threshold: 0.25, ignoreLocation: true });
         fuseRef.current = fuse as unknown as typeof fuseRef.current;
         setSearchState("ready");
       } catch {
