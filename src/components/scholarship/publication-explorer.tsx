@@ -32,6 +32,7 @@ export function PublicationExplorer({
   const [searchHits, setSearchHits] = useState<Set<string> | null>(null);
   const [searchState, setSearchState] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const fuseRef = useRef<{ search: (pattern: string) => { item: SearchDoc }[] } | null>(null);
+  const loadStarted = useRef(false);
 
   const kindOptions = useMemo(() => {
     const kinds = [...new Set(items.map((i) => i.kind))];
@@ -40,9 +41,11 @@ export function PublicationExplorer({
   const decadeOptions = useMemo(() => [...new Set(items.map((i) => i.decade))].sort().reverse(), [items]);
 
   // Lazy-load Fuse.js and the build-time search index on first query.
+  // Runs once (loadStarted guard): depending on searchState here would let the
+  // effect's own cleanup cancel the in-flight load.
   useEffect(() => {
-    if (!q || searchState !== "idle") return;
-    let cancelled = false;
+    if (!q || loadStarted.current) return;
+    loadStarted.current = true;
     setSearchState("loading");
     (async () => {
       try {
@@ -52,18 +55,13 @@ export function PublicationExplorer({
         ]);
         const docs = (res as { items: SearchDoc[] }).items;
         const fuse = new Fuse(docs, { keys: ["title", "authors", "venue"], threshold: 0.35, ignoreLocation: true });
-        if (!cancelled) {
-          fuseRef.current = fuse as unknown as typeof fuseRef.current;
-          setSearchState("ready");
-        }
+        fuseRef.current = fuse as unknown as typeof fuseRef.current;
+        setSearchState("ready");
       } catch {
-        if (!cancelled) setSearchState("error");
+        setSearchState("error");
       }
     })();
-    return () => {
-      cancelled = true;
-    };
-  }, [q, searchState]);
+  }, [q]);
 
   useEffect(() => {
     if (searchState !== "ready" || !q) {
