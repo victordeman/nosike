@@ -64,7 +64,8 @@ const BIOS: Array<{ file: string; maxWords: number }> = [
 for (const { file, maxWords } of BIOS) {
   const path = join(DIR, file);
   try {
-    const raw = readFileSync(path, "utf8");
+    // Normalise line endings so CRLF checkouts (e.g. Windows) validate the same as LF.
+    const raw = readFileSync(path, "utf8").replace(/\r\n/g, "\n");
     const fm = raw.match(/^---\n([\s\S]*?)\n---/);
     if (!fm || !fm[1].split("\n").includes("approval: client approval pending"))
       throw new Error(`missing "approval: client approval pending" front matter`);
