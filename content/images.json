@@ -2,7 +2,9 @@
   {
     "id": "portrait-suit-navy",
     "file": "portrait-suit-navy",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 540,
     "height": 960,
     "focalX": 0.5,
@@ -14,7 +16,9 @@
   {
     "id": "portrait-blazer-burgundy",
     "file": "portrait-blazer-burgundy",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 540,
     "height": 960,
     "focalX": 0.5,
@@ -26,31 +30,39 @@
   {
     "id": "portrait-suit-charcoal",
     "file": "portrait-suit-charcoal",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 720,
     "height": 1280,
     "focalX": 0.5,
     "focalY": 0.35,
     "alt": "Prof. Austin Nosike in a charcoal suit and blue patterned tie",
     "role": "hero",
-    "sourceFile": "WhatsApp Image 2026-11-18 at 21.09.05.jpeg"
+    "sourceFile": "WhatsApp Image 2026-11-18 at 21.09.05.jpeg",
+    "galleryCategory": "portraits"
   },
   {
     "id": "regalia-full-a",
     "file": "regalia-full-a",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 750,
     "height": 1000,
     "focalX": 0.5,
     "focalY": 0.4,
     "alt": "Prof. Austin Nosike in full doctoral regalia with cap, standing",
     "role": "regalia",
-    "sourceFile": "WhatsApp Image 2026-11-18 at 21.10.03 (1).jpeg"
+    "sourceFile": "WhatsApp Image 2026-11-18 at 21.10.03 (1).jpeg",
+    "galleryCategory": "academic"
   },
   {
     "id": "portrait-blazer-mustard",
     "file": "portrait-blazer-mustard",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 540,
     "height": 960,
     "focalX": 0.5,
@@ -62,19 +74,24 @@
   {
     "id": "portrait-traditional-cap-mustard-a",
     "file": "portrait-traditional-cap-mustard-a",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 720,
     "height": 1280,
     "focalX": 0.5,
     "focalY": 0.4,
     "alt": "Prof. Austin Nosike in a mustard shirt and patterned cap",
     "role": "about",
-    "sourceFile": "WhatsApp Image 2026-11-18 at 21.10.04 (1).jpeg"
+    "sourceFile": "WhatsApp Image 2026-11-18 at 21.10.04 (1).jpeg",
+    "galleryCategory": "portraits"
   },
   {
     "id": "portrait-traditional-cap-mustard-b",
     "file": "portrait-traditional-cap-mustard-b",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 720,
     "height": 1280,
     "focalX": 0.5,
@@ -86,19 +103,24 @@
   {
     "id": "regalia-full-b",
     "file": "regalia-full-b",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 750,
     "height": 1000,
     "focalX": 0.5,
     "focalY": 0.4,
     "alt": "Prof. Austin Nosike in full doctoral regalia with cap, standing",
     "role": "regalia",
-    "sourceFile": "WhatsApp Image 2026-11-18 at 21.10.04.jpeg"
+    "sourceFile": "WhatsApp Image 2026-11-18 at 21.10.04.jpeg",
+    "galleryCategory": "academic"
   },
   {
     "id": "portrait-tunic-dark",
     "file": "portrait-tunic-dark",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 720,
     "height": 1280,
     "focalX": 0.5,
@@ -110,7 +132,9 @@
   {
     "id": "portrait-tunic-blue-a",
     "file": "portrait-tunic-blue-a",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 720,
     "height": 1280,
     "focalX": 0.5,
@@ -122,31 +146,39 @@
   {
     "id": "portrait-tunic-black-cap-a",
     "file": "portrait-tunic-black-cap-a",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 504,
     "height": 1280,
     "focalX": 0.5,
     "focalY": 0.4,
     "alt": "Prof. Austin Nosike in a black tunic with embroidered cap",
     "role": "about",
-    "sourceFile": "WhatsApp Image 2026-11-18 at 21.12.08.jpeg"
+    "sourceFile": "WhatsApp Image 2026-11-18 at 21.12.08.jpeg",
+    "galleryCategory": "portraits"
   },
   {
     "id": "portrait-tunic-maroon-a",
     "file": "portrait-tunic-maroon-a",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 720,
     "height": 1280,
     "focalX": 0.5,
     "focalY": 0.4,
     "alt": "Prof. Austin Nosike in a maroon tunic",
     "role": "gallery",
-    "sourceFile": "WhatsApp Image 2026-11-18 at 21.12.09 (1).jpeg"
+    "sourceFile": "WhatsApp Image 2026-11-18 at 21.12.09 (1).jpeg",
+    "galleryCategory": "portraits"
   },
   {
     "id": "portrait-tunic-maroon-b",
     "file": "portrait-tunic-maroon-b",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 720,
     "height": 1280,
     "focalX": 0.5,
@@ -158,19 +190,24 @@
   {
     "id": "portrait-tunic-maroon-thoughtful",
     "file": "portrait-tunic-maroon-thoughtful",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 720,
     "height": 1280,
     "focalX": 0.5,
     "focalY": 0.4,
     "alt": "Prof. Austin Nosike in a maroon tunic, hand at chin",
     "role": "about",
-    "sourceFile": "WhatsApp Image 2026-11-18 at 21.12.09 (4).jpeg"
+    "sourceFile": "WhatsApp Image 2026-11-18 at 21.12.09 (4).jpeg",
+    "galleryCategory": "portraits"
   },
   {
     "id": "portrait-tunic-black-cap-b",
     "file": "portrait-tunic-black-cap-b",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 720,
     "height": 1280,
     "focalX": 0.5,
@@ -182,7 +219,9 @@
   {
     "id": "portrait-tunic-navy",
     "file": "portrait-tunic-navy",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 720,
     "height": 1280,
     "focalX": 0.5,
@@ -194,7 +233,9 @@
   {
     "id": "portrait-kaftan-white-a",
     "file": "portrait-kaftan-white-a",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 720,
     "height": 1280,
     "focalX": 0.5,
@@ -206,31 +247,40 @@
   {
     "id": "portrait-kaftan-white-b",
     "file": "portrait-kaftan-white-b",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 720,
     "height": 1280,
     "focalX": 0.5,
     "focalY": 0.3,
     "alt": "Prof. Austin Nosike in a white kaftan",
     "role": "hero",
-    "sourceFile": "WhatsApp Image 2026-11-18 at 21.12.10 (2).jpeg"
+    "sourceFile": "WhatsApp Image 2026-11-18 at 21.12.10 (2).jpeg",
+    "galleryCategory": "portraits"
   },
   {
     "id": "speaking-desk",
     "file": "speaking-desk",
-    "widths": [480, 960],
+    "widths": [
+      480,
+      960
+    ],
     "width": 1088,
     "height": 643,
     "focalX": 0.5,
     "focalY": 0.4,
     "alt": "Prof. Austin Nosike in a white kaftan speaking at a desk",
     "role": "talks",
-    "sourceFile": "WhatsApp Image 2026-11-18 at 21.12.10 (3).jpeg"
+    "sourceFile": "WhatsApp Image 2026-11-18 at 21.12.10 (3).jpeg",
+    "galleryCategory": "engagements"
   },
   {
     "id": "portrait-tunic-tan",
     "file": "portrait-tunic-tan",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 576,
     "height": 1280,
     "focalX": 0.5,
@@ -242,19 +292,25 @@
   {
     "id": "talk-session-a",
     "file": "talk-session-a",
-    "widths": [480],
+    "widths": [
+      480
+    ],
     "width": 672,
     "height": 960,
     "focalX": 0.5,
     "focalY": 0.4,
     "alt": "Prof. Austin Nosike in a white kaftan at a conference table",
     "role": "talks",
-    "sourceFile": "S2-supplied-21.12.10.jpeg"
+    "sourceFile": "S2-supplied-21.12.10.jpeg",
+    "galleryCategory": "engagements"
   },
   {
     "id": "talk-session-b",
     "file": "talk-session-b",
-    "widths": [480, 960],
+    "widths": [
+      480,
+      960
+    ],
     "width": 1024,
     "height": 662,
     "focalX": 0.5,
