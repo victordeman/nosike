@@ -16,6 +16,7 @@ export const profileSchema = z.object({
   bioLong: z.string().optional(),
   researchInterests: z.array(z.string()),
   languages: z.array(z.string()),
+  values: z.array(z.string()),
   affiliatedInstitution: z.string(),
   ...provenance,
 });
@@ -139,6 +140,13 @@ export const talkSchema = z.object({
 });
 export const talksSchema = z.array(talkSchema);
 export type Talk = z.infer<typeof talkSchema>;
+
+export const committeeSchema = z.object({
+  name: z.string().min(3),
+  ...provenance,
+});
+export const committeesSchema = z.array(committeeSchema);
+export type Committee = z.infer<typeof committeeSchema>;
 
 export const proceedVolumeSchema = z.object({
   code: z.string(),
