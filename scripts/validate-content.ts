@@ -55,5 +55,28 @@ if (extras.length) {
   failures++;
   console.error(`content files without schema: ${extras.join(", ")}`);
 }
+
+// Prose biographies: front matter must carry the approval flag, and word limits from SPEC Phase 2 apply.
+const BIOS: Array<{ file: string; maxWords: number }> = [
+  { file: "bio-short.mdx", maxWords: 120 },
+  { file: "bio-long.mdx", maxWords: 600 },
+];
+for (const { file, maxWords } of BIOS) {
+  const path = join(DIR, file);
+  try {
+    const raw = readFileSync(path, "utf8");
+    const fm = raw.match(/^---\n([\s\S]*?)\n---/);
+    if (!fm || !fm[1].split("\n").includes("approval: client approval pending"))
+      throw new Error(`missing "approval: client approval pending" front matter`);
+    const body = raw.replace(/^---\n[\s\S]*?\n---\n/, "");
+    const words = body.trim().split(/\s+/).filter(Boolean).length;
+    if (words > maxWords) throw new Error(`${words} words exceeds the ${maxWords}-word limit`);
+    console.log(`content OK: ${file} (${words} words)`);
+  } catch (err) {
+    failures++;
+    console.error(`content INVALID: ${file}`);
+    console.error(err instanceof Error ? err.message : err);
+  }
+}
 if (failures) process.exit(1);
 console.log("All content files validate.");

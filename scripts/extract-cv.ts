@@ -10,8 +10,9 @@
 import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const ROOT = new URL("..", import.meta.url).pathname;
+const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const DOCX = join(ROOT, "_sources/docs/Prof_Austin_Nosike_Profile.docx");
 const TXT = join(ROOT, "_sources/text/Prof_Austin_Nosike_Profile.docx.txt");
 const OUT = join(ROOT, "content/publications.json");
@@ -27,18 +28,26 @@ const FIXES: Array<[RegExp, string]> = [
 const PY = `
 import json, sys, docx
 d = docx.Document(sys.argv[1])
-print(json.dumps([p.text.replace("\\t", " ").strip() for p in d.paragraphs]))
+print(json.dumps([[p.text.replace("\\t", " ").strip(), p.style.name if p.style else ""] for p in d.paragraphs]))
 `;
 
-function readParagraphs(): string[] {
+interface Para {
+  text: string;
+  style: string;
+}
+
+function readParagraphs(): Para[] {
   try {
     const out = execFileSync("python3", ["-c", PY, DOCX], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
-    return JSON.parse(out) as string[];
+    return (JSON.parse(out) as Array<[string, string]>).map(([text, style]) => ({ text, style }));
   } catch {
     return readFileSync(TXT, "utf8")
       .split("\n")
-      .map((l) => l.replace(/^\[[^\]]+\]\s*/, "").trim())
-      .filter(Boolean);
+      .map((l) => {
+        const m = l.match(/^\[([^\]]+)\]\s?(.*)$/);
+        return m ? { style: m[1], text: m[2].trim() } : { style: "", text: l.trim() };
+      })
+      .filter((p) => p.text);
   }
 }
 
@@ -52,15 +61,20 @@ const TITLE_YEAR = /(?:\((?:19|20)\d{2}\)|[\s,]+(?:19|20)\d{2})\.?$/;
 
 // Words that typically begin the venue/publisher part of a citation.
 const VENUE_WORD =
-  "(?:International|African|Journal|Proceedings?|Press|Publishers?|Monograph|Report|Bulletin|Transactions|Review|Gazette|Annals|Acta|Studies|Letters|Research|Lectures?|Mimeograph|Memorandum|Project|Thesis|Colloquium|Symposium|Congress|Conference|Seminar|Workshop|Association|Institute|Centre|Center|University|Academy|Foundation|Network|Government|Ministry|Department|Office|Mission|Organisation|Organization|Committee|Panel|Trust|Charity|Group|Society|Club|Union|Council|Board|School|College|Polytechnic|Seminary|Cathedral|Mosque|Church|Hospital|Clinic|Bank|Insurance|Company|Corporation|Inc|Ltd|LLC|PLC|Corp|Co|GmbH|SARL|SA|NV|BV|AG|Oy|AB|AS|SpA|Srl|Pty|LLP|LP|LLC|Granada|Sevilla|Oviedo|Istanbul|Port Harcourt|Lagos|Owerri|Kaduna|Umuahia|Nsugbe|Makurdi|Warri|Abuja|Ibadan|Enugu|Onitsha| Aba|Nnewi|Orlu|Okigwe|Aba|Uyo|Calabar|Jos|Ilorin|Bauchi|Maiduguri|Kano|Sokoto|Zaria|Nsukka|Awka|Oyo|Ile-Ife|Benin|Asaba|Delta|Rivers|Cross River|Akwa Ibom|Edo|Ondo|Osun|Ogun|Lagos|Abia|Imo|Anambra|Ebonyi|Enugu|Gombe|Jigawa|Kebbi|Kogi|Kwara|Nasarawa|Niger|Plateau|Sokoto|Taraba|Yobe|Zamfara)";
+  "(?:International|African|Journal|Proceedings?|Press|Publishers?|Monograph|Report|Bulletin|Transactions|Review|Gazette|Annals|Acta|Studies|Letters|Research|Lectures?|Mimeograph|Memorandum|Project|Thesis|Colloquium|Symposium|Congress|Conference|Seminar|Workshop|Association|Institute|Centre|Center|University|Academy|Foundation|Network|Unpublished|Government|Ministry|Department|Office|Mission|Organisation|Organization|Committee|Panel|Trust|Charity|Group|Society|Club|Union|Council|Board|School|College|Polytechnic|Seminary|Cathedral|Mosque|Church|Hospital|Clinic|Bank|Insurance|Company|Corporation|Inc|Ltd|LLC|PLC|Corp|Co|GmbH|SARL|SA|NV|BV|AG|Oy|AB|AS|SpA|Srl|Pty|LLP|LP|LLC|Granada|Sevilla|Oviedo|Istanbul|Port Harcourt|Lagos|Owerri|Kaduna|Umuahia|Nsugbe|Makurdi|Warri|Abuja|Ibadan|Enugu|Onitsha| Aba|Nnewi|Orlu|Okigwe|Aba|Uyo|Calabar|Jos|Ilorin|Bauchi|Maiduguri|Kano|Sokoto|Zaria|Nsukka|Awka|Oyo|Ile-Ife|Benin|Asaba|Delta|Rivers|Cross River|Akwa Ibom|Edo|Ondo|Osun|Ogun|Lagos|Abia|Imo|Anambra|Ebonyi|Enugu|Gombe|Jigawa|Kebbi|Kogi|Kwara|Nasarawa|Niger|Plateau|Sokoto|Taraba|Yobe|Zamfara)";
 const VENUE_RE = new RegExp("[.!?]\\s+(?=" + VENUE_WORD + ")", "g");
+const VENUE_PHRASE_RE = new RegExp(
+  "[.!?]\\s+(?=[A-Z][\\w&'.-]*(?:\\s+[A-Z][\\w&'.-]*){0,4}\\s+(?:International\\s+|African\\s+)?(?:Journal|Proceedings?|Press|Publishers?|Review|Gazette|Bulletin|Transactions|Annals|Acta|Studies|Letters|Research|Monograph|Report|Magazine|Quarterly)\\b)",
+  "g",
+);
 const VENUE_INDICATOR = /\b(?:Vol\.?|No\.?|pp?\.?|ISBN|ISSN|Legal Deposit|ed\.?|eds?\.?|in )\b/i;
 
 function splitTitleVenue(text: string): { title: string; rest: string } {
   // Book chapters / contributed papers: "Title. In A. Editor (eds) Book Title. Place: Publisher…"
   const eds =
     text.match(/^(.{10,400})\s*[.!?"']\s*In\s+[^()]{0,180}?\(\s*eds?\s*\)\s*(.+)$/i) ??
-    text.match(/^(.{10,400})\s+in\s+[A-Z][\w.,&' -]{0,80}?\bet al\.?\s*\(\s*eds?\s*\)\s*(.+)$/i);
+    text.match(/^(.{10,400})\s+in\s+[A-Z][\w.,&' -]{0,80}?\bet al\.?\s*\(\s*eds?\s*\)\s*(.+)$/i) ??
+    text.match(/^(.{10,400})\s+in\s+[A-Z][\w.,&' -]{0,80}?\(\s*eds?\s*\)\s*(.+)$/i);
   if (eds) {
     let rest = eds[2]
       .replace(/\s*(?:ISBN|ISSN|Legal Deposit|pp?\.?\s*[\d\-–]+|https?:\/\/\S*|www\.\S*|http\/\/\S*).*$/i, "")
@@ -78,7 +92,7 @@ function splitTitleVenue(text: string): { title: string; rest: string } {
     const after = text.slice(m.index + m[0].length, m.index + m[0].length + 120);
     if (
       VENUE_INDICATOR.test(after) ||
-      /[A-Z][a-z]+ (?:Journal|Press|Publishers?|University|Institute|Centre|Center|Association|Conference|Monograph|Report|Bulletin|Review|Gazette|Annals|Acta|Studies|Letters|Research|Lectures?|Mimeograph|Memorandum|Project|Thesis|Colloquium|Symposium|Congress|Seminar|Workshop)/.test(
+      /[A-Z][a-z]+ (?:Journal|Press|Publishers?|University|Institute|Centre|Center|College|Polytechnic|Association|Conference|Monograph|Report|Bulletin|Review|Gazette|Annals|Acta|Studies|Letters|Research|Lectures?|Mimeograph|Memorandum|Project|Thesis|Colloquium|Symposium|Congress|Seminar|Workshop)/.test(
         after,
       )
     ) {
@@ -87,10 +101,24 @@ function splitTitleVenue(text: string): { title: string; rest: string } {
     }
   }
   if (last >= 0) return { title: text.slice(0, last + 1), rest: text.slice(last + 1).trim() };
+  // Journal names with a capitalised prefix (e.g. "Turkish Online Journal of …").
+  VENUE_PHRASE_RE.lastIndex = 0;
+  let pm2: RegExpExecArray | null;
+  while ((pm2 = VENUE_PHRASE_RE.exec(text))) {
+    const after2 = text.slice(pm2.index + pm2[0].length, pm2.index + pm2[0].length + 120);
+    if (
+      VENUE_INDICATOR.test(after2) ||
+      /[A-Z][a-z]+ (?:Journal|Press|Publishers?|University|Institute|Centre|Center|College|Polytechnic|Association|Conference|Monograph|Report|Bulletin|Review|Gazette|Annals|Acta|Studies|Letters|Research)/.test(
+        after2,
+      )
+    ) {
+      return { title: text.slice(0, pm2.index + 1), rest: text.slice(pm2.index + 1).trim() };
+    }
+  }
   // Comma-separated venue with no preceding period (e.g. "Title, Journal Name, Vol…").
   // Titles contain commas too, so only split where a venue name starts right after the comma.
   const VENUE_START =
-    /^\s*(?:[A-Z][\w&'.-]*\s+){0,4}(?:International|African|Journal|Proceedings?|Press|Publishers?|Review|Gazette|Bulletin|Transactions|Annals|Acta|Studies|Letters|Research|Monograph|Report|Magazine|Quarterly|Monthly|Weekly|Herald|Times|Post|Tribune|Observer|Chronicle|Standard|Mirror|Sun|Star|Guardian|Voice|Echo|Pilot|Record|Dispatch|Courier|Inquirer|Ledger)\b/;
+    /^\s*(?:[A-Z][\w&'.-]*\s+){0,4}(?:International|African|Journal|Proceedings?|Press|Publishers?|Review|Gazette|Bulletin|Transactions|Annals|Acta|Studies|Letters|Research|Monograph|Report|Magazine|Quarterly|Monthly|Weekly|Herald|Times|Post|Tribune|Observer|Chronicle|Standard|Mirror|Sun|Star|Guardian|Voice|Echo|Pilot|Record|Dispatch|Courier|Inquirer|Ledger|Unpublished)\b/;
   const commaRe = /,/g;
   let cm: RegExpExecArray | null;
   while ((cm = commaRe.exec(text))) {
@@ -123,16 +151,14 @@ function parseEntry(raw: string, section: "Books" | "Articles", index: number): 
   const text = clean(raw).replace(TITLE_YEAR, "");
   if (text.length < 15) return null;
   const { title: rawTitle, rest } = splitTitleVenue(text);
-  const title = rawTitle
-    .replace(/[.,\s]+$/, "")
-    .replace(/\s*\((?:19|20)\d{2}[a-z]?\)\.?,?\s*$/, "")
-    .replace(/[\s,]+(?:19|20)\d{2}\.?$/, "");
+  const title = rawTitle.replace(/[.,\s]+$/, "").replace(/\s*\((?:19|20)\d{2}[a-z]?\)\.?,?\s*$/, "");
   if (!title || title === rest) return null;
+  // The publication year is the last plausible year in the citation; years inside the
+  // title (e.g. "1960-1995") are range endpoints, not publication dates.
   const years = [...new Set([...raw.matchAll(/\b(?:19|20)\d{2}\b/g)].map((m) => Number(m[0])))].filter(
     (y) => y >= 1985 && y <= 2026,
   );
-  const inTitle = raw.match(/\((?:19|20)\d{2}\)|[\s,]+(?:19|20)\d{2}/)?.[0].replace(/\D/g, "");
-  const year = years.length ? Math.min(...years) : inTitle ? Number(inTitle) : null;
+  const year = years.length ? Math.max(...years) : null;
   const isbn = text
     .match(/ISBN:?\s*(97[89][\d\- ]{9,}|\d{3}-\d-[\d-]+\d|\d{10})/i)?.[1]
     ?.replace(/\s+/g, "")
@@ -169,15 +195,17 @@ function parseEntry(raw: string, section: "Books" | "Articles", index: number): 
 }
 
 const paras = readParagraphs();
-const start = paras.findIndex((p) => p.trim().toUpperCase() === "PUBLICATIONS");
-const end = paras.findIndex((p, i) => i > start && p.trim().toUpperCase() === "REFEREES");
+const start = paras.findIndex((p) => p.text.trim().toUpperCase() === "PUBLICATIONS");
+const end = paras.findIndex((p, i) => i > start && p.text.trim().toUpperCase() === "REFEREES");
 if (start < 0 || end < 0) throw new Error("PUBLICATIONS section not found in CV");
 
 // Join continuation paragraphs (venue details on the next line) into the previous entry.
 const rawEntries: Array<{ section: "Books" | "Articles"; text: string }> = [];
 let section: "Books" | "Articles" | "" = "";
 for (const p of paras.slice(start + 1, end)) {
-  const t = p.trim();
+  const t = p.text.trim();
+  // Venue/detail continuation lines are "Normal" style in the docx (entries are "List Paragraph").
+  const isContinuation = p.style === "Normal";
   if (/^Books$/i.test(t)) {
     section = "Books";
     continue;
@@ -195,7 +223,7 @@ for (const p of paras.slice(start + 1, end)) {
       t,
     );
   const lower = /^[a-z"'(]/.test(t);
-  if (prev && prev.section === section && venueOnly) prev.text = `${prev.text} ${t}`;
+  if (prev && prev.section === section && (isContinuation || venueOnly)) prev.text = `${prev.text} ${t}`;
   else if (prev && prev.section === section && !/[.!?\d]$/.test(prev.text) && (lower || dangling || fragNext))
     prev.text = `${prev.text} ${t}`;
   else rawEntries.push({ section, text: t });

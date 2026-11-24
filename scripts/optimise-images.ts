@@ -2,19 +2,28 @@
 /**
  * Optimises the supplied photos into public/images: AVIF + WebP + JPEG at 480/960/1600,
  * EXIF/GPS stripped, renamed per SPEC Appendix B, and writes content/images.json.
+ * Appendix B crop notes are applied as fractional crop boxes before resizing.
  *
  *   node scripts/optimise-images.ts
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
-const ROOT = new URL("..", import.meta.url).pathname;
+const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const SRC = join(ROOT, "_sources/photos");
 const OUT = join(ROOT, "public/images");
 const MANIFEST_OUT = join(ROOT, "content/images.json");
 
 const WIDTHS = [480, 960, 1600] as const;
+
+interface Crop {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+}
 
 interface Spec {
   source: string;
@@ -23,6 +32,7 @@ interface Spec {
   role: "hero" | "regalia" | "gallery" | "about" | "talks" | "excluded";
   focalX?: number;
   focalY?: number;
+  crop?: Crop;
   skip?: boolean;
 }
 
@@ -90,11 +100,13 @@ const SPECS: Spec[] = [
     alt: "Prof. Austin Nosike in a royal-blue tunic",
     role: "gallery",
   },
+  // Appendix B #10: "crop the frame out" — framed official portrait on the right edge.
   {
     source: "WhatsApp Image 2026-11-18 at 21.12.08.jpeg",
     target: "portrait-tunic-black-cap-a",
     alt: "Prof. Austin Nosike in a black tunic with embroidered cap",
     role: "about",
+    crop: { left: 0, top: 0, width: 0.7, height: 1 },
   },
   {
     source: "WhatsApp Image 2026-11-18 at 21.12.09 (1).jpeg",
@@ -140,29 +152,36 @@ const SPECS: Spec[] = [
     focalX: 0.5,
     focalY: 0.3,
   },
+  // Appendix B #20: "crop to remove frames" — top row of framed portraits above the speaker.
   {
     source: "WhatsApp Image 2026-11-18 at 21.12.10 (3).jpeg",
     target: "speaking-desk",
     alt: "Prof. Austin Nosike in a white kaftan speaking at a desk",
     role: "talks",
+    crop: { left: 0.05, top: 0.33, width: 0.85, height: 0.67 },
   },
+  // Appendix B #21: tiny framed portraits far background — crop right edge.
   {
     source: "WhatsApp Image 2026-11-18 at 21.12.10.jpeg",
     target: "portrait-tunic-tan",
     alt: "Prof. Austin Nosike in a tan tunic, seated",
     role: "gallery",
+    crop: { left: 0, top: 0, width: 0.8, height: 1 },
   },
+  // Appendix B S2/S3: "crop tight, frames out".
   {
     source: "S2-supplied-21.12.10.jpeg",
     target: "talk-session-a",
     alt: "Prof. Austin Nosike in a white kaftan at a conference table",
     role: "talks",
+    crop: { left: 0.12, top: 0.25, width: 0.7, height: 0.75 },
   },
   {
     source: "S3-supplied-21.12.11.jpeg",
     target: "talk-session-b",
     alt: "Prof. Austin Nosike in a white kaftan at a conference with the Nigerian flag",
     role: "talks",
+    crop: { left: 0.1, top: 0.31, width: 0.8, height: 0.69 },
   },
   // Excluded sources (Appendix B): awkward crop, official portraits behind, low angle.
   { source: "WhatsApp Image 2026-11-18 at 21.12.09 (3).jpeg", target: "", alt: "", role: "excluded", skip: true },
@@ -176,17 +195,27 @@ async function main() {
   for (const spec of SPECS) {
     if (spec.skip) continue;
     const input = join(SRC, spec.source);
-    const image = sharp(input).rotate(); // auto-orient from EXIF before stripping
-    const meta = await image.metadata();
-    const srcW = meta.width ?? 0;
-    const srcH = meta.height ?? 0;
+    // Bake EXIF orientation first so crop fractions apply to the displayed image.
+    const oriented = await sharp(input).rotate().toBuffer();
+    const meta = await sharp(oriented).metadata();
+    let srcW = meta.width ?? 0;
+    let srcH = meta.height ?? 0;
     if (!srcW || !srcH) throw new Error(`Cannot read ${spec.source}`);
+    let pipeline = sharp(oriented);
+    if (spec.crop) {
+      const c = spec.crop;
+      pipeline = pipeline.extract({
+        left: Math.round(c.left * srcW),
+        top: Math.round(c.top * srcH),
+        width: Math.round(c.width * srcW),
+        height: Math.round(c.height * srcH),
+      });
+      srcW = Math.round(c.width * srcW);
+      srcH = Math.round(c.height * srcH);
+    }
     const widths = WIDTHS.filter((w) => w <= srcW);
-    const focalX = spec.focalX ?? 0.5;
-    const focalY = spec.focalY ?? 0.5;
     for (const w of widths) {
-      const h = Math.round((srcH / srcW) * w);
-      const base = sharp(input).rotate().resize({ width: w });
+      const base = pipeline.clone().resize({ width: w });
       await base
         .clone()
         .avif({ quality: 55 })
@@ -199,15 +228,15 @@ async function main() {
         .clone()
         .jpeg({ quality: 82, mozjpeg: true })
         .toFile(join(OUT, `${spec.target}-${w}.jpg`));
-      void h;
     }
     manifest.push({
       id: spec.target,
-      file: `${spec.target}.jpg`,
+      file: spec.target,
+      widths: [...widths],
       width: srcW,
       height: srcH,
-      focalX,
-      focalY,
+      focalX: spec.focalX ?? 0.5,
+      focalY: spec.focalY ?? 0.4,
       alt: spec.alt,
       role: spec.role,
       sourceFile: spec.source,

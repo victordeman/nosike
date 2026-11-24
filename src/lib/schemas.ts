@@ -197,7 +197,8 @@ export type Publication = z.infer<typeof publicationSchema>;
 
 export const imageSchema = z.object({
   id: z.string(),
-  file: z.string().regex(/^[\w-]+\.(avif|webp|jpg)$/),
+  file: z.string().regex(/^[\w-]+$/),
+  widths: z.array(z.number().int()),
   width: z.number().int(),
   height: z.number().int(),
   focalX: z.number().min(0).max(1),

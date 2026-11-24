@@ -45,7 +45,7 @@
   },
   {
     "id": "pub-006",
-    "title": "Education and Development in Imo State. A Commissioned Research Report for Ministry of Education and Imo Newspapers Ltd, Owerri",
+    "title": "Education and Development in Imo State",
     "authors": [],
     "year": 1994,
     "kind": "book",
@@ -160,10 +160,11 @@
   },
   {
     "id": "pub-017",
-    "title": "Open and Distance Learning in Nigeria: Development, Policy Options and Challenges. Turkish Online Journal of Educational Technology,Vol.10(July) (www.tojet.net)(Turkey)",
+    "title": "Open and Distance Learning in Nigeria: Development, Policy Options and Challenges",
     "authors": [],
     "year": null,
     "kind": "journal-article",
+    "venue": "Turkish Online Journal of Educational Technology",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
@@ -377,7 +378,7 @@
   },
   {
     "id": "pub-039",
-    "title": "Nation Building in Nigeria since",
+    "title": "Nation Building in Nigeria since 1960",
     "authors": [],
     "year": 1991,
     "kind": "lecture",
@@ -468,7 +469,7 @@
     "id": "pub-049",
     "title": "Education and Rural Development since 1960: The Nigerian Experience",
     "authors": [],
-    "year": 1960,
+    "year": null,
     "kind": "lecture",
     "venue": "the APQEN Conference on Education for Rural Development. Nnamdi Azikiwe University. Awka.",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
@@ -531,20 +532,13 @@
     "id": "pub-056",
     "title": "Effective Leadership in Public and Private Sector Business Enterprises",
     "authors": [],
-    "year": null,
+    "year": 1999,
     "kind": "journal-article",
+    "venue": "Development Administration Bulletin No.4, Development Africa Consortium",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
     "id": "pub-057",
-    "title": "Development Administration Bulletin No.4, Development Africa Consortium",
-    "authors": [],
-    "year": 1999,
-    "kind": "journal-article",
-    "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
-  },
-  {
-    "id": "pub-058",
     "title": "The WATSAN Project and Community Health in Nigeria: An Assessment",
     "authors": [],
     "year": 1997,
@@ -553,7 +547,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-059",
+    "id": "pub-058",
     "title": "\"Determinants of Career and Professional Development of Primary Teachers in Uganda\" African Journal of Research in Education, Vo1.1, No.2",
     "authors": [],
     "year": 2000,
@@ -561,7 +555,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-060",
+    "id": "pub-059",
     "title": "Scientific Dynamics of Investment Risk-Return Trade-offs: The Case of Nigerian Commercial Banks",
     "authors": [],
     "year": 2000,
@@ -571,7 +565,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-061",
+    "id": "pub-060",
     "title": "Information Technology, Cultural Imperialism and Value Orientation: Myth and Reality?",
     "authors": [],
     "year": 1998,
@@ -580,7 +574,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-062",
+    "id": "pub-061",
     "title": "Community Participation, Industrialization and Sustainable Health Development",
     "authors": [],
     "year": 1997,
@@ -589,7 +583,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-063",
+    "id": "pub-062",
     "title": "Women and Development in Nigeria: A Contemporary Perspective",
     "authors": [],
     "year": 2000,
@@ -599,7 +593,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-064",
+    "id": "pub-063",
     "title": "Energy Resource and Survival of Nigerian Small Business: Perspectives on the Printing Industry",
     "authors": [],
     "year": 2000,
@@ -609,7 +603,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-065",
+    "id": "pub-064",
     "title": "A Gender Perspective on Education for the Advancement of Science and Technology: Some Reflection",
     "authors": [],
     "year": 1998,
@@ -618,7 +612,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-066",
+    "id": "pub-065",
     "title": "\"Education and the Nigerian Child: A Philosophical Review",
     "authors": [],
     "year": 1998,
@@ -627,7 +621,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-067",
+    "id": "pub-066",
     "title": "Gender, Education and Development: The Equity Question",
     "authors": [],
     "year": 2000,
@@ -637,7 +631,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-068",
+    "id": "pub-067",
     "title": "Education as a Tool for National Stability. A Socio-Economic Perspective",
     "authors": [],
     "year": 1994,
@@ -646,7 +640,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-069",
+    "id": "pub-068",
     "title": "Performance Appraisal: A Tool for Corporate Productivity and Development",
     "authors": [],
     "year": 2000,
@@ -656,7 +650,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-070",
+    "id": "pub-069",
     "title": "Development and Spatial Equity of Social Service in Nigeria",
     "authors": [],
     "year": 1994,
@@ -665,23 +659,15 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-071",
-    "title": "Economic Adjustment Programmes in Africa: Cure and Curse? 1994 African",
+    "id": "pub-070",
+    "title": "Economic Adjustment Programmes in Africa: Cure and Curse? 1994 African Guardian Colloquium, Lagos",
     "authors": [],
     "year": 1994,
-    "kind": "journal-article",
-    "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
-  },
-  {
-    "id": "pub-072",
-    "title": "Guardian Colloquium, Lagos",
-    "authors": [],
-    "year": null,
     "kind": "lecture",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-073",
+    "id": "pub-071",
     "title": "Development in a Bewildered Nation. A Memorandum Submitted to the Constitutional Conference Assembly, Intl Conference Centre, Abuja",
     "authors": [],
     "year": 1994,
@@ -689,7 +675,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-074",
+    "id": "pub-072",
     "title": "Literature: A Means of Imparting Morality in Nigerian School Pupils",
     "authors": [],
     "year": 2000,
@@ -699,7 +685,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-075",
+    "id": "pub-073",
     "title": "Sustainable Development and the Nigerian Environment: A Gender Equity Perspective",
     "authors": [],
     "year": 1994,
@@ -708,7 +694,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-076",
+    "id": "pub-074",
     "title": "Gender, Science and Technology in Nigeria'. The Challenges of Teacher Education",
     "authors": [],
     "year": 1999,
@@ -717,23 +703,16 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-077",
+    "id": "pub-075",
     "title": "Role of Cooperatives in Rural Development: A Case Study of Owerri",
-    "authors": [],
-    "year": null,
-    "kind": "journal-article",
-    "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
-  },
-  {
-    "id": "pub-078",
-    "title": "Unpublished Project, Anambra State College of Education, Awka",
     "authors": [],
     "year": 1990,
     "kind": "journal-article",
+    "venue": "Unpublished Project, Anambra State College of Education, Awka",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-079",
+    "id": "pub-076",
     "title": "Cash Management and Small Business Enterprises in Nigeria",
     "authors": [],
     "year": 2001,
@@ -742,7 +721,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-080",
+    "id": "pub-077",
     "title": "Organizational Learning and Society: An Analysis",
     "authors": [],
     "year": 2001,
@@ -751,7 +730,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-081",
+    "id": "pub-078",
     "title": "Equipment Leasing and Industrial Marketing in Nigeria",
     "authors": [],
     "year": 2001,
@@ -760,7 +739,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-082",
+    "id": "pub-079",
     "title": "An Analysis of Petroleum Marketing and Development in Nigeria. Monograph, Centre for Applied Development and Public Policy",
     "authors": [],
     "year": 2002,
@@ -768,7 +747,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-083",
+    "id": "pub-080",
     "title": "Maternal Education and Quality of Life: Theory and Evidence",
     "authors": [],
     "year": 1999,
@@ -777,15 +756,16 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-084",
-    "title": "Gender, Resources and Sustainable Development in Rural Nigeria. Development Bulletin, Development Africa Consortium, Port Harcourt",
+    "id": "pub-081",
+    "title": "Gender, Resources and Sustainable Development in Rural Nigeria",
     "authors": [],
     "year": 1999,
     "kind": "journal-article",
+    "venue": "Development Bulletin, Development Africa Consortium, Port Harcourt",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-085",
+    "id": "pub-082",
     "title": "Law, the Status of Women and Sustainable Development in Africa",
     "authors": [],
     "year": 1998,
@@ -794,7 +774,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-086",
+    "id": "pub-083",
     "title": "African Economy and Development: The Question of Resource Management for Sustainable Development. Guest Lecture, Kaduna Polytechnic",
     "authors": [],
     "year": 1997,
@@ -802,7 +782,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-087",
+    "id": "pub-084",
     "title": "The Private Sector and Sustainable Development in Africa, Management Lecture, Nigerian Institute of Research and Development",
     "authors": [],
     "year": 1999,
@@ -810,7 +790,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-088",
+    "id": "pub-085",
     "title": "Universities and National Development: The Nigerian Perspective.1996 Faculty of Arts & Social Science Lecture, Nigerian Defence Academy",
     "authors": [],
     "year": 1996,
@@ -818,7 +798,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-089",
+    "id": "pub-086",
     "title": "Creation of States, Local Governments and Nation Building in Nigeria",
     "authors": [],
     "year": 2001,
@@ -827,24 +807,25 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-090",
-    "title": "The Place of Geography in Nigerian High Schools: A Case Study of Owerri, Unpublished Thesis, University of Nigeria, Nsukka",
+    "id": "pub-087",
+    "title": "The Place of Geography in Nigerian High Schools: A Case Study of Owerri",
     "authors": [],
     "year": 1993,
     "kind": "thesis",
+    "venue": "Unpublished Thesis, University of Nigeria, Nsukka",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-091",
+    "id": "pub-088",
     "title": "A Survey of Monetary Policy in Nigeria, 1960-1995",
     "authors": [],
-    "year": 1995,
+    "year": 2001,
     "kind": "journal-article",
     "venue": "African Journal of Development Studies",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-092",
+    "id": "pub-089",
     "title": "Education, Participation and Responsibility towards Sustainable Development: Women in Focus",
     "authors": [],
     "year": 2000,
@@ -853,7 +834,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-093",
+    "id": "pub-090",
     "title": "Literacy and Agro-Industrial Productivity: A Theoretical Viewpoint",
     "authors": [],
     "year": 1993,
@@ -862,23 +843,16 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-094",
+    "id": "pub-091",
     "title": "Career Status, Job Satisfaction and Labour Performance in Civil Service",
-    "authors": [],
-    "year": null,
-    "kind": "journal-article",
-    "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
-  },
-  {
-    "id": "pub-095",
-    "title": "Unpublished Thesis, Imo State University, Owerri",
     "authors": [],
     "year": 1996,
     "kind": "thesis",
+    "venue": "Unpublished Thesis, Imo State University, Owerri",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-096",
+    "id": "pub-092",
     "title": "Standards and Relevance of Education on Nigeria",
     "authors": [],
     "year": 1993,
@@ -887,7 +861,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-097",
+    "id": "pub-093",
     "title": "Development in Nigeria under the Period of Economic Reforms",
     "authors": [],
     "year": null,
@@ -896,7 +870,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-098",
+    "id": "pub-094",
     "title": "Political Economy and National Orientation under the Period of Policy Reform",
     "authors": [],
     "year": 1994,
@@ -905,7 +879,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-099",
+    "id": "pub-095",
     "title": "Dysfunctionalism in Nigerian Education since 1960: An Evaluative Diagnosis",
     "authors": [],
     "year": 1995,
@@ -914,7 +888,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-100",
+    "id": "pub-096",
     "title": "Urbanization and Nigerian Development: A Spatial and Demographic Perspective",
     "authors": [],
     "year": 1999,
@@ -923,15 +897,16 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-101",
-    "title": "Motivation and Labour Productivity Among Salesmen in Petroleum Marketing Companies: A Case Study of Total Nigeria Plc, Unpublished MBA Thesis, University of Science and Technology, Port Harcourt",
+    "id": "pub-097",
+    "title": "Motivation and Labour Productivity Among Salesmen in Petroleum Marketing Companies: A Case Study of Total Nigeria Plc",
     "authors": [],
     "year": 1998,
     "kind": "thesis",
+    "venue": "Unpublished MBA Thesis, University of Science and Technology, Port Harcourt",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-102",
+    "id": "pub-098",
     "title": "United Nations, Humankind and Proliferation of Dangerous Weapons",
     "authors": [],
     "year": 2001,
@@ -940,16 +915,16 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-103",
-    "title": "University and National Development: The Dilemma in Nigerian Situation in M.O. Ezegbe and S. C. Owunwa (eds) Social Science and National Development",
+    "id": "pub-099",
+    "title": "University and National Development: The Dilemma in Nigerian Situation",
     "authors": [],
     "year": 1999,
     "kind": "book-chapter",
-    "venue": "Owerri: Whyte and Whyte Publishers Ltd",
+    "venue": "Social Science and National Development",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-104",
+    "id": "pub-100",
     "title": "Education, Science and Technology in Nigeria: A Gender Perspective",
     "authors": [],
     "year": 2001,
@@ -958,15 +933,16 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-105",
-    "title": "Corporate Finance: Some Reflections on Credit Sources. Management Bulletin, Development Africa Consortium, Port Harcourt",
+    "id": "pub-101",
+    "title": "Corporate Finance: Some Reflections on Credit Sources",
     "authors": [],
     "year": 2000,
     "kind": "journal-article",
+    "venue": "Management Bulletin, Development Africa Consortium, Port Harcourt",
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-106",
+    "id": "pub-102",
     "title": "Gender, Science and Technology in Nigeria: Implications on Education for Development",
     "authors": [],
     "year": 2002,
@@ -975,7 +951,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-107",
+    "id": "pub-103",
     "title": "Spatial Inequality in the Accessibility to Educational Facilities: A Threat to National Integration",
     "authors": [],
     "year": 1998,
@@ -984,7 +960,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-108",
+    "id": "pub-104",
     "title": "The Challenges of Universities for National Stability: A Quantitative and Qualitative Diagnosis",
     "authors": [],
     "year": 1994,
@@ -993,7 +969,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-109",
+    "id": "pub-105",
     "title": "Development and Spatial Equity of Social Services in Nigeria",
     "authors": [],
     "year": 2001,
@@ -1002,7 +978,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-110",
+    "id": "pub-106",
     "title": "Economic Reform and Management Development in Nigeria",
     "authors": [],
     "year": 2001,
@@ -1011,7 +987,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-111",
+    "id": "pub-107",
     "title": "Leadership, Policy Making and Implementation: A Corporate Perspective",
     "authors": [],
     "year": 2001,
@@ -1020,7 +996,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-112",
+    "id": "pub-108",
     "title": "Managing Human Resources for Sustainable Higher Education: A Motivational Dimension",
     "authors": [],
     "year": 2001,
@@ -1029,7 +1005,7 @@
     "source": "Prof_Austin_Nosike_Profile.docx › PUBLICATIONS"
   },
   {
-    "id": "pub-113",
+    "id": "pub-109",
     "title": "Psychology of Youths. 2000 Guest Lecture, Catholic Youth Organisation of Nigeria",
     "authors": [],
     "year": 2000,
