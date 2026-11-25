@@ -68,9 +68,9 @@ export default function HomePage() {
       <Section className="pt-10 sm:pt-16">
         <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
-            <Heading level={1} size="display" eyebrow={profile.role}>
+            <h1 className="font-semibold whitespace-nowrap text-[clamp(1.6rem,1rem+2.5vw,3rem)] leading-[1.05]">
               {profile.displayName}
-            </Heading>
+            </h1>
             <p className="text-ink-muted mt-6 max-w-prose text-lg">{profile.positioningLine}.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href="/scholarship">Explore his work</ButtonLink>

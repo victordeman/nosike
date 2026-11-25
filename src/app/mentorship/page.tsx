@@ -84,8 +84,8 @@ export default function MentorshipPage() {
       </div>
 
       <p className="text-ink-muted mt-10 text-sm">
-        Figures are as stated in the supplied CV and profile. One further CV claim is withheld from this page
-        pending client confirmation.
+        Figures are as stated in the supplied CV and profile; the professorial-promotion assessment count was
+        confirmed by the client in November 2025.
       </p>
     </Section>
   );

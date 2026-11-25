@@ -43,8 +43,8 @@ Update the **Status** section below as decisions arrive; never resolve a conflic
 ## Phase 5 notes (for Gate 5 review)
 
 - **Gallery:** the Appendix B shortlist (10 images) is categorised in `content/images.json` (`galleryCategory`: portraits / academic / engagements). Final selection and captions await client approval (Gate 5). The optional certificate gallery is skipped — no client-approved cropped certificates yet.
-- **Mentorship:** supervision figures (12 PhD / 38 Master's completed; 4 PhD / 7 Master's current) come from the approved A.2 values. The CV's "18 professorial promotion assessments" claim is **withheld** pending confirmation (record marked `pending`, not displayed).
-- **Honours:** pending records (essay prize — year unknown per Appendix C item 9; West Coast University Research Award — AIM-only, not in CV) display with a "Pending confirmation" badge. The "Professional fellowships" group has no records and is omitted.
+- **Mentorship:** supervision figures (12 PhD / 38 Master's completed; 4 PhD / 7 Master's current) come from the approved A.2 values. The CV's "18 professorial promotion assessments" claim was withheld at Gate 5 and **confirmed by the client on 2026-11-25** — now displayed as an approved external-assessment record.
+- **Honours:** pending records (essay prize — year unknown per Appendix C item 9) display with a "Pending confirmation" badge. The West Coast University Research Award (AIM-only, not in CV) was **removed at client request on 2026-11-25**. The "Professional fellowships" group has no records and is omitted.
 - **Talks:** the ASCON "Performance Dashboards" abstract is a neutral one-paragraph description written from the session title/theme only — no deck figures or statements (SPEC §2.2). The two 1996/2000 guest lectures show venue/date with "topic to be supplied by client". **Speaking-topics list for the "Invite him to speak" CTA still needs client approval** — the page links to /contact meanwhile.
 - **Policy:** the 18 records are grouped explicitly in `src/app/policy/page.tsx` (GROUPS); the "Kenyan University Commission" record stays pending (exact name to confirm).
 
@@ -58,6 +58,7 @@ Update the **Status** section below as decisions arrive; never resolve a conflic
 ## Status log
 
 - Phase 0: items seeded; all defaults applied.
+- 2026-11-25 (post-Gate 6): client supplied three media-kit key facts (18 professorial promotion assessments as External Assessor, 15 research grants, 35+ projects) and requested removal of the West Coast University Research Award. Key facts added to `profile.json`; award record deleted; promotion claim confirmed and published on /mentorship.
 - Phase 2: content model populated; data report above awaits Gate 2 client review.
 - Phase 4: scholarship explorer, editorial block, proceedings and events pages built; theme tags and events discrepancies above await Gate 4 client review.
 - Phase 5: policy, mentorship, honours, talks and gallery pages built; photo selection/captions await Gate 5 client review.

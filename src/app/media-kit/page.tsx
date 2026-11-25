@@ -40,6 +40,7 @@ export default function MediaKitPage() {
   const facts = [
     profile.role,
     ...profile.currentRoles.filter((r) => /African Academy|Journal Editors/.test(r)),
+    ...(profile.keyFacts ?? []),
     `Languages: ${profile.languages.join(", ")}`,
   ];
 
