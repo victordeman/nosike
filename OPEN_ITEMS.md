@@ -55,6 +55,13 @@ Update the **Status** section below as decisions arrive; never resolve a conflic
 - **Media kit:** bios with copy buttons, key facts, name forms (Appendix C item 11), and four gallery-approved portraits. Downloads are the highest-resolution approved files (480 px JPEG); the original photos are only ~540–720 px wide, so print-resolution files must come from the client (noted on the page).
 - **E2E:** contact flow runs against the mock transport (`CONTACT_TRANSPORT=mock`, file at `tmp/e2e-contact.jsonl`); spam (honeypot, too-fast) is rejected with 400.
 
+## Phase 8 notes (launch/handover)
+
+- **Edit workflow:** Option B (documented GitHub edit → Preview → merge) implemented — see [`EDIT_WORKFLOW.md`](EDIT_WORKFLOW.md) and [`CONTENT_GUIDE.md`](CONTENT_GUIDE.md). Keystatic (Option A) deferred: needs extra auth setup and is unproven on Next.js 16 + Turbopack + PPR; revisit post-launch if edit volume justifies it. Zod validation gates every build, so invalid content can never publish.
+- **Branch protection on `main`:** manual repo-admin step (bot token gets HTTP 403) — Settings → Branches → ruleset for `main` requiring a PR and the Vercel/CI checks. Also still manual: move `ci/github-actions-ci.yml` to `.github/workflows/ci.yml` to activate CI.
+- **Launch checklist still blocked on client (Gate 0):** domain name (needed for `NEXT_PUBLIC_SITE_URL`, canonical URLs, sitemap, OG tags, CV header), contact-form destination address and verified Resend sender (SPF/DKIM), speaking-topics list for the talks CTA, proceedings PDF hosting approval.
+- **Production checks pending domain:** Lighthouse on live URL, form delivery end-to-end, OG link previews, sitemap submission to Google Search Console / Bing.
+
 ## Status log
 
 - Phase 0: items seeded; all defaults applied.
@@ -63,3 +70,6 @@ Update the **Status** section below as decisions arrive; never resolve a conflic
 - Phase 4: scholarship explorer, editorial block, proceedings and events pages built; theme tags and events discrepancies above await Gate 4 client review.
 - Phase 5: policy, mentorship, honours, talks and gallery pages built; photo selection/captions await Gate 5 client review.
 - Phase 6: contact page + API, media kit and public CV PDF built; CV PDF and contact flow await Gate 6 client review.
+- 2026-11-25: hero photo decided by client — `regalia-full-a` (doctoral regalia portrait) on the home hero (PR #10).
+- 2026-11-25: Phase 7 merged (PR #9, Gate 7 approved by merge) — SEO, performance, accessibility, security headers, privacy-on-build.
+- 2026-11-25: Phase 8 handover pack delivered (README, CONTENT_GUIDE, EDIT_WORKFLOW, OWNER_WALKTHROUGH); production env vars/domain await Gate 0 answers.
