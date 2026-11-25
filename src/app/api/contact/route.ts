@@ -3,15 +3,46 @@ import { NextResponse } from "next/server";
 import { contactSchema } from "@/lib/contact-schema";
 import { deliverEnquiry, rateLimitOk, tooFast } from "@/lib/contact";
 
+const MAX_BODY_BYTES = 20_000;
+
+/** Reads the body with a hard byte cap, so chunked/streamed requests cannot bypass the limit. */
+async function readLimitedBody(request: Request): Promise<string | null> {
+  const reader = request.body?.getReader();
+  if (!reader) return null;
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    total += value.byteLength;
+    if (total > MAX_BODY_BYTES) {
+      await reader.cancel();
+      return null;
+    }
+    chunks.push(value);
+  }
+  const buffer = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) {
+    buffer.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return new TextDecoder().decode(buffer);
+}
+
 export async function POST(request: Request) {
   const contentLength = Number(request.headers.get("content-length") ?? "0");
-  if (contentLength > 20_000) {
+  if (contentLength > MAX_BODY_BYTES) {
     return NextResponse.json({ error: "too-large" }, { status: 413 });
   }
 
   let body: unknown;
   try {
-    body = await request.json();
+    const text = await readLimitedBody(request);
+    if (text === null) {
+      return NextResponse.json({ error: "too-large" }, { status: 413 });
+    }
+    body = JSON.parse(text);
   } catch {
     return NextResponse.json({ error: "invalid" }, { status: 400 });
   }

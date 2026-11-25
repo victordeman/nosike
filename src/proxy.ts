@@ -43,7 +43,12 @@ function cspFor(pathname: string): string {
     ].join("; ");
   }
   const hashes = manifest.routes[pathname] ?? manifest.fallback;
-  const scriptSrc = ["'self'", ...hashes.map((h) => `'sha256-${h}'`)].join(" ");
+  // No hashes available (manifest not shipped with the server bundle): degrade to
+  // 'unsafe-inline' rather than block Next's inline startup scripts and break hydration.
+  const scriptSrc =
+    hashes.length > 0
+      ? ["'self'", ...hashes.map((h) => `'sha256-${h}'`)].join(" ")
+      : "'self' 'unsafe-inline'";
   return [...BASE_DIRECTIVES, `script-src ${scriptSrc}`, "connect-src 'self'", "upgrade-insecure-requests"].join("; ");
 }
 
