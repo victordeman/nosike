@@ -37,3 +37,4 @@ public/search-index.json
 # Local scratch (contact mock transport, CV preview HTML)
 tmp/
 csp-hashes.json
+.vercel

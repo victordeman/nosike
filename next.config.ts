@@ -16,6 +16,9 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   pageExtensions: process.env.NODE_ENV === "development" ? ["dev.tsx", "tsx", "ts"] : ["tsx", "ts"],
   /* config options here */
+  // Pinned so the two-phase build (next build → csp hashes → next build) produces
+  // byte-identical HTML in both passes and the hashes stay valid.
+  generateBuildId: async () => "nosike",
   cacheComponents: true,
   partialPrefetching: true,
   async headers() {
