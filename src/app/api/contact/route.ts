@@ -4,6 +4,11 @@ import { contactSchema } from "@/lib/contact-schema";
 import { deliverEnquiry, rateLimitOk, tooFast } from "@/lib/contact";
 
 export async function POST(request: Request) {
+  const contentLength = Number(request.headers.get("content-length") ?? "0");
+  if (contentLength > 20_000) {
+    return NextResponse.json({ error: "too-large" }, { status: 413 });
+  }
+
   let body: unknown;
   try {
     body = await request.json();

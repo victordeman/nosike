@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { JsonLd } from "@/components/seo/json-ld";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import { Section } from "@/components/ui/layout";
 import { PublicationExplorer } from "@/components/scholarship/publication-explorer";
-import { getEditorial } from "@/lib/content";
+import { getEditorial, getProfile, getPublications } from "@/lib/content";
+import { publicationJsonLd } from "@/lib/jsonld";
 import { getBooks, getExplorerItems, getThemeMap } from "@/lib/scholarship";
-import { site } from "@/lib/site";
+import { ogImageFor, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Scholarship",
@@ -15,6 +18,7 @@ export const metadata: Metadata = {
     title: `Scholarship · ${site.name}`,
     description: `Books, chapters, articles and papers by ${site.name}, with filters and copyable citations.`,
     url: `${site.url}/scholarship`,
+    images: [ogImageFor("scholarship", "Scholarship")],
   },
 };
 
@@ -51,9 +55,21 @@ export default function ScholarshipPage() {
   const themeOptions = themeMap.themes.map((t) => ({ id: t.id, label: t.label }));
   themeOptions.push({ id: "other", label: "Other" });
   const editorial = getEditorial();
+  const profile = getProfile();
+  // Books plus peer-reviewed journal articles get structured data; other kinds stay list-only.
+  const publicationJsonLdList = getPublications()
+    .filter(
+      (p) =>
+        p.kind === "book" ||
+        p.kind === "monograph" ||
+        (p.kind === "journal-article" && p.year !== null && Boolean(p.venue)),
+    )
+    .map((p) => publicationJsonLd(p, profile));
 
   return (
     <>
+      <JsonLd data={publicationJsonLdList} />
+      <Breadcrumbs items={[{ name: "Scholarship" }]} />
       <Section className="pt-10 sm:pt-16" aria-labelledby="scholarship">
         <Heading id="scholarship" level={1} size={2} eyebrow="Scholarship">
           Publications

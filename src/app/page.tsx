@@ -7,6 +7,7 @@ import { Container, Section } from "@/components/ui/layout";
 import { Stat, StatList } from "@/components/ui/stat";
 import { WorldMap } from "@/components/map/world-map";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
+import { JsonLd } from "@/components/seo/json-ld";
 import { getCountries, getProfile, getTalks, verifiedCountries } from "@/lib/content";
 import { imageById } from "@/lib/images";
 import { ogImage, site } from "@/lib/site";
@@ -47,28 +48,37 @@ export default function HomePage() {
 
   const personJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: profile.displayName,
-    alternateName: profile.formalName,
-    jobTitle: "Vice Chancellor/President",
-    worksFor: { "@type": "CollegeOrUniversity", name: "James Hope University" },
-    description: profile.positioningLine,
-    knowsLanguage: profile.languages,
-    url: site.url,
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": `${site.url}/#person`,
+        name: profile.displayName,
+        alternateName: profile.formalName,
+        jobTitle: "Vice Chancellor/President",
+        worksFor: { "@type": "CollegeOrUniversity", name: "James Hope University" },
+        description: profile.positioningLine,
+        knowsLanguage: profile.languages,
+        url: `${site.url}/about`,
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": `${site.url}/#profilepage`,
+        url: site.url,
+        name: profile.displayName,
+        mainEntity: { "@id": `${site.url}/#person` },
+      },
+    ],
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-      />
+      <JsonLd data={personJsonLd} />
 
       {/* Hero */}
       <Section className="pt-10 sm:pt-16">
         <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
-            <h1 className="font-semibold whitespace-nowrap text-[clamp(1.6rem,1rem+2.5vw,3rem)] leading-[1.05]">
+            <h1 className="text-[clamp(1.6rem,1rem+2.5vw,3rem)] leading-[1.05] font-semibold whitespace-nowrap">
               {profile.displayName}
             </h1>
             <p className="text-ink-muted mt-6 max-w-prose text-lg">{profile.positioningLine}.</p>
@@ -81,7 +91,7 @@ export default function HomePage() {
           </div>
           {hero ? (
             <div className="order-first lg:order-none">
-              <div className="bg-surface overflow-hidden rounded-card shadow-card">
+              <div className="bg-surface rounded-card shadow-card overflow-hidden">
                 <ResponsiveImage
                   image={hero}
                   priority

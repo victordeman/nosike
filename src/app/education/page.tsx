@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import { Section } from "@/components/ui/layout";
 import { getEducation, getMemberships, sortEducation } from "@/lib/content";
-import { ogImage, site } from "@/lib/site";
+import { ogImageFor, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Education",
@@ -12,14 +13,18 @@ export const metadata: Metadata = {
     title: `Education · ${site.name}`,
     description: `Degrees, fellowships and professional memberships of ${site.name}.`,
     url: `${site.url}/education`,
-    images: [ogImage],
+    images: [ogImageFor("education", "Education")],
   },
 };
 
 const GROUPS: { level: string; title: string; blurb: string }[] = [
   { level: "doctoral", title: "Doctoral", blurb: "PhD qualifications" },
   { level: "masters", title: "Master's", blurb: "Master's degrees" },
-  { level: "postgraduate", title: "Postgraduate fellowships & training", blurb: "Postgraduate fellowships and executive training" },
+  {
+    level: "postgraduate",
+    title: "Postgraduate fellowships & training",
+    blurb: "Postgraduate fellowships and executive training",
+  },
   { level: "foundation", title: "Foundation", blurb: "School and foundational qualifications" },
   { level: "professional", title: "Professional qualifications", blurb: "Professional diplomas" },
 ];
@@ -30,6 +35,7 @@ export default function EducationPage() {
 
   return (
     <>
+      <Breadcrumbs items={[{ name: "Education" }]} />
       <Section className="pt-10 sm:pt-16" aria-labelledby="education">
         <Heading id="education" level={1} size={2} eyebrow="Education">
           Degrees & training

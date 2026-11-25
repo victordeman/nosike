@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import { Prose, Section } from "@/components/ui/layout";
 import { getPolicy } from "@/lib/content";
 import type { PolicyRole } from "@/lib/schemas";
-import { site } from "@/lib/site";
+import { ogImageFor, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Policy & consultancy",
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
     title: `Policy & consultancy · ${site.name}`,
     description: `Policy advisory and consultancy roles held by ${site.name}.`,
     url: `${site.url}/policy`,
+    images: [ogImageFor("policy", "Policy & consultancy")],
   },
 };
 
@@ -27,7 +29,13 @@ const GROUPS: { heading: string; intro?: string; ids: string[] }[] = [
   { heading: "UNECA & pan-African water initiatives", ids: ["pol-uneca"] },
   {
     heading: "Higher-education regulators",
-    ids: ["pol-nche-namibia", "pol-hec-rwanda", "pol-nche-uganda", "pol-kenyan-university-commission", "pol-nuc-nigeria"],
+    ids: [
+      "pol-nche-namibia",
+      "pol-hec-rwanda",
+      "pol-nche-uganda",
+      "pol-kenyan-university-commission",
+      "pol-nuc-nigeria",
+    ],
   },
   { heading: "Imo State", ids: ["pol-imo-committee"] },
   {
@@ -63,14 +71,15 @@ export default function PolicyPage() {
 
   return (
     <>
+      <Breadcrumbs items={[{ name: "Policy & consultancy" }]} />
       <Section className="pt-10 sm:pt-16" aria-labelledby="policy">
         <Heading id="policy" level={1} size={2} eyebrow="Policy">
           Policy & consultancy
         </Heading>
         <Prose className="mt-4 max-w-prose">
           <p>
-            Three decades of translating economic research into public policy and institutional practice — from
-            national regulators and the African Union to community-level civic work.
+            Three decades of translating economic research into public policy and institutional practice — from national
+            regulators and the African Union to community-level civic work.
           </p>
         </Prose>
       </Section>
@@ -106,8 +115,8 @@ export default function PolicyPage() {
           <p>
             Before academia, Prof. Nosike worked as a journalist — features writer at the Daily Star in Enugu, staff
             writer at The Statesman in Owerri and senior staff writer at News Flash — and later as a management
-            consultant and publisher. That grounding gives him a practical feel for how research reaches the public
-            and for the craft of turning evidence into clear, actionable policy.
+            consultant and publisher. That grounding gives him a practical feel for how research reaches the public and
+            for the craft of turning evidence into clear, actionable policy.
           </p>
         </Prose>
       </Section>

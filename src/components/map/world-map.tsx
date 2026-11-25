@@ -36,12 +36,7 @@ export function WorldMap({ headingLevel = "h2", withList = true }: { headingLeve
               }
               strokeWidth={c.verified ? 0.6 : 0.8}
               strokeDasharray={c.verified ? undefined : "2 1.5"}
-            >
-              <title>
-                {c.name}
-                {c.verified ? "" : " (pending confirmation)"}
-              </title>
-            </path>
+            />
           ))}
         </svg>
         <figcaption className="text-ink-muted mt-3 text-sm">

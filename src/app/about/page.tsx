@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Badge } from "@/components/ui/badge";
 import { Heading } from "@/components/ui/heading";
 import { Prose, Section } from "@/components/ui/layout";
@@ -6,7 +7,7 @@ import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { getBio } from "@/lib/bio";
 import { getProfile } from "@/lib/content";
 import { imagesByRole } from "@/lib/images";
-import { ogImage, site } from "@/lib/site";
+import { ogImageFor, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     title: `About · ${site.name}`,
     description: `Biography of ${site.name} — ${site.role}. Research interests, languages and values.`,
     url: `${site.url}/about`,
-    images: [ogImage],
+    images: [ogImageFor("about", "About")],
   },
 };
 
@@ -39,11 +40,9 @@ export default function AboutPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
 
+      <Breadcrumbs items={[{ name: "About" }]} />
       <Section className="pt-10 sm:pt-16">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
@@ -56,7 +55,7 @@ export default function AboutPage() {
               ))}
             </Prose>
             {longBio.length > 0 ? (
-              <details className="border-line mt-8 rounded-card border bg-surface p-6">
+              <details className="border-line rounded-card bg-surface mt-8 border p-6">
                 <summary className="cursor-pointer text-lg font-semibold">Read the full biography</summary>
                 <Prose className="mt-6">
                   {longBio.map((paragraph, i) => (
@@ -107,7 +106,7 @@ export default function AboutPage() {
           </Heading>
           <div className="grid gap-6 sm:grid-cols-3">
             {photos.map((photo) => (
-              <div key={photo.id} className="bg-paper overflow-hidden rounded-card shadow-card">
+              <div key={photo.id} className="bg-paper rounded-card shadow-card overflow-hidden">
                 <ResponsiveImage
                   image={photo}
                   sizes="(min-width: 640px) 30vw, 90vw"
