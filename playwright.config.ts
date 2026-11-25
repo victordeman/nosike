@@ -16,5 +16,15 @@ export default defineConfig({
       use: { ...devices["Desktop Chrome"], viewport: { width: 360, height: 740 }, hasTouch: true },
     },
   ],
-  webServer: { command: `npx next start -p ${port}`, port, reuseExistingServer: !process.env.CI },
+  webServer: {
+    command: `npx next start -p ${port}`,
+    port,
+    reuseExistingServer: !process.env.CI,
+    // Contact form deliveries go to a local JSONL file instead of email during e2e runs.
+    env: {
+      CONTACT_TRANSPORT: "mock",
+      CONTACT_MOCK_FILE: "tmp/e2e-contact.jsonl",
+      CONTACT_RATE_LIMIT_MAX: "1000",
+    },
+  },
 });

@@ -48,9 +48,17 @@ Update the **Status** section below as decisions arrive; never resolve a conflic
 - **Talks:** the ASCON "Performance Dashboards" abstract is a neutral one-paragraph description written from the session title/theme only — no deck figures or statements (SPEC §2.2). The two 1996/2000 guest lectures show venue/date with "topic to be supplied by client". **Speaking-topics list for the "Invite him to speak" CTA still needs client approval** — the page links to /contact meanwhile.
 - **Policy:** the 18 records are grouped explicitly in `src/app/policy/page.tsx` (GROUPS); the "Kenyan University Commission" record stays pending (exact name to confirm).
 
+## Phase 6 notes (for Gate 6 review)
+
+- **Contact form/API:** `POST /api/contact` with shared Zod schema, honeypot, 2-second minimum-fill-time, and a per-IP fixed-window limiter (5 per 10 minutes; in-memory stop-gap — Upstash env vars are reserved in `.env.example` but not wired yet). Transport order: `CONTACT_TRANSPORT=mock` (writes JSONL, used by e2e) → Resend when `RESEND_API_KEY` + `CONTACT_TO_EMAIL` + `CONTACT_FROM_EMAIL` are set → log-only fallback. **Real delivery still needs the client's destination address and a verified Resend sender** (Gate 0 item 2 / Phase 8 checklist); until then submissions are only logged server-side.
+- **Public CV PDF:** `npm run cv:pdf` regenerates `public/cv/Nosike-CV-public.pdf` (committed) from the approved content JSON via Playwright print — 12 pages, verified with `pdftotext` to contain no phone numbers, personal email addresses, birth dates or referee contacts. Pending/unverified records (honours, talks, policy, mentorship, career) are excluded. The header uses the placeholder Vercel URL until the domain is decided (Gate 0 item 1).
+- **Media kit:** bios with copy buttons, key facts, name forms (Appendix C item 11), and four gallery-approved portraits. Downloads are the highest-resolution approved files (480 px JPEG); the original photos are only ~540–720 px wide, so print-resolution files must come from the client (noted on the page).
+- **E2E:** contact flow runs against the mock transport (`CONTACT_TRANSPORT=mock`, file at `tmp/e2e-contact.jsonl`); spam (honeypot, too-fast) is rejected with 400.
+
 ## Status log
 
 - Phase 0: items seeded; all defaults applied.
 - Phase 2: content model populated; data report above awaits Gate 2 client review.
 - Phase 4: scholarship explorer, editorial block, proceedings and events pages built; theme tags and events discrepancies above await Gate 4 client review.
 - Phase 5: policy, mentorship, honours, talks and gallery pages built; photo selection/captions await Gate 5 client review.
+- Phase 6: contact page + API, media kit and public CV PDF built; CV PDF and contact flow await Gate 6 client review.

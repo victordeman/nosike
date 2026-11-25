@@ -37,6 +37,9 @@ const textPairs: Array<[fg: string, bg: string]> = [
   ["gold", "paper"],
   ["gold", "surface"],
   ["gold", "surface-muted"],
+  ["danger", "paper"],
+  ["danger", "surface"],
+  ["danger", "surface-muted"],
 ];
 
 describe.each([":root", '[data-theme="dark"]'])("WCAG AA contrast in %s", (selector) => {

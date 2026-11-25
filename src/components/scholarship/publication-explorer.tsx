@@ -7,6 +7,7 @@ import { cn } from "@/lib/cn";
 type ThemeOption = { id: string; label: string };
 
 type SearchDoc = { id: string; title: string; authors: string; venue: string };
+type FuseSearcher = { search: (pattern: string) => { item: SearchDoc }[] };
 
 const selectClass =
   "border-line bg-paper text-ink min-h-11 w-full rounded-lg border px-3 text-sm font-medium focus:border-accent focus:outline-none";
@@ -29,9 +30,8 @@ export function PublicationExplorer({
   const [decade, setDecade] = useState(initial.decade);
   const [theme, setTheme] = useState(initial.theme);
   const [q, setQ] = useState(initial.q);
-  const [searchHits, setSearchHits] = useState<Set<string> | null>(null);
+  const [fuse, setFuse] = useState<FuseSearcher | null>(null);
   const [searchState, setSearchState] = useState<"idle" | "loading" | "ready" | "error">("idle");
-  const fuseRef = useRef<{ search: (pattern: string) => { item: SearchDoc }[] } | null>(null);
   const loadStarted = useRef(false);
 
   const kindOptions = useMemo(() => {
@@ -55,7 +55,7 @@ export function PublicationExplorer({
         ]);
         const docs = (res as { items: SearchDoc[] }).items;
         const fuse = new Fuse(docs, { keys: ["title", "authors", "venue"], threshold: 0.25, ignoreLocation: true });
-        fuseRef.current = fuse as unknown as typeof fuseRef.current;
+        setFuse(fuse as unknown as FuseSearcher);
         setSearchState("ready");
       } catch {
         setSearchState("error");
@@ -63,16 +63,10 @@ export function PublicationExplorer({
     })();
   }, [q]);
 
-  useEffect(() => {
-    if (searchState !== "ready" || !q) {
-      setSearchHits(null);
-      return;
-    }
-    const fuse = fuseRef.current;
-    if (!fuse) return;
-    const hits = fuse.search(q);
-    setSearchHits(new Set(hits.map((h) => h.item.id)));
-  }, [q, searchState]);
+  const searchHits = useMemo(() => {
+    if (searchState !== "ready" || !q || !fuse) return null;
+    return new Set(fuse.search(q).map((h) => h.item.id));
+  }, [q, searchState, fuse]);
 
   // Keep the URL deep-linkable without a router round-trip.
   useEffect(() => {

@@ -35,7 +35,7 @@ export default function MentorshipPage() {
         Supervision & examination
       </Heading>
       <p className="text-ink-muted mt-4 max-w-prose">
-        Doctoral and master's supervision, and external examining for universities across Africa.
+        Doctoral and master’s supervision, and external examining for universities across Africa.
       </p>
 
       <div className="mt-10">
