@@ -84,6 +84,14 @@ for (const file of walk(root.dir)) {
   }
 }
 
+// Vercel serves the error pages as static files (.next/output/static/404.html,
+// 500.html) outside the functions dir. Requests to unknown paths hit the
+// fallback policy, so those scripts must be allowed there too.
+for (const file of walk(".next/output/static")) {
+  if (!file.endsWith(".html")) continue;
+  hashesFor(readFileSync(file, "utf8")).forEach((h) => fallback.add(h));
+}
+
 writeFileSync(OUT, JSON.stringify({ routes, fallback: [...fallback] }, null, 2) + "\n");
 const total = Object.values(routes).reduce((n, h) => n + h.length, 0);
 console.log(`csp-hashes.json: ${Object.keys(routes).length} routes, ${total} hashes (from ${root.dir})`);
