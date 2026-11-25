@@ -15,8 +15,8 @@ test("mentorship page shows approved supervision figures only", async ({ page })
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Supervision & examination");
   await expect(page.getByText("12", { exact: true }).first()).toBeVisible();
   await expect(page.getByText("38", { exact: true }).first()).toBeVisible();
-  // the unconfirmed "18 professorial promotion assessments" claim must not appear as a fact
-  await expect(page.getByText(/18 professorial promotion assessments/)).toHaveCount(0);
+  // the professorial-promotion claim was confirmed by the client (November 2025)
+  await expect(page.getByText(/18 professorial promotion assessments/)).toBeVisible();
   await expect(page.getByText("Bindura University of Science Education (BUSE)")).toBeVisible();
 });
 

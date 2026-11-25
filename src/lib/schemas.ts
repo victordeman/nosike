@@ -16,6 +16,8 @@ export const profileSchema = z.object({
   bioLong: z.string().optional(),
   researchInterests: z.array(z.string()),
   languages: z.array(z.string()),
+  /** Extra media-facing facts shown in the media kit key facts. */
+  keyFacts: z.array(z.string()).optional(),
   values: z.array(z.string()),
   affiliatedInstitution: z.string(),
   ...provenance,

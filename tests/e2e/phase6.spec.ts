@@ -97,6 +97,8 @@ test("media kit shows bios, name forms and headshot downloads", async ({ page })
   );
   await expect(page.getByText("How to introduce him")).toBeVisible();
   await expect(page.getByText("Nosike, A. N.")).toBeVisible();
+  await expect(page.getByText("Won 15 research grants")).toBeVisible();
+  await expect(page.getByText(/18 candidates to professorial rank/)).toBeVisible();
   await expect(page.getByRole("button", { name: "Copy short bio" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Copy long bio" })).toBeVisible();
   const download = page.getByRole("link", { name: "Download JPEG" }).first();
