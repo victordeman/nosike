@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { CopyButton } from "@/components/media-kit/copy-button";
 import { Heading } from "@/components/ui/heading";
 import { Prose, Section } from "@/components/ui/layout";
@@ -6,7 +7,7 @@ import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { getBio } from "@/lib/bio";
 import { getProfile } from "@/lib/content";
 import { imageById, imageSrc } from "@/lib/images";
-import { site } from "@/lib/site";
+import { ogImageFor, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Media kit",
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
     title: `Media kit · ${site.name}`,
     description: `Biographies, headshots, key facts and name forms for media coverage of ${site.name}.`,
     url: `${site.url}/media-kit`,
+    images: [ogImageFor("media-kit", "Media kit")],
   },
 };
 
@@ -46,14 +48,15 @@ export default function MediaKitPage() {
 
   return (
     <>
+      <Breadcrumbs items={[{ name: "Media kit" }]} />
       <Section className="pt-10 sm:pt-16" aria-labelledby="media-kit">
         <Heading id="media-kit" level={1} size={2} eyebrow="Media kit">
           Media kit
         </Heading>
         <Prose className="mt-4 max-w-2xl">
           <p>
-            Everything here may be used in media coverage. For interviews, images at full resolution or fact
-            checks, use the contact form. The public CV is available as a{" "}
+            Everything here may be used in media coverage. For interviews, images at full resolution or fact checks, use
+            the contact form. The public CV is available as a{" "}
             <a
               href="/cv/Nosike-CV-public.pdf"
               className="text-accent hover:text-accent-strong font-medium underline underline-offset-2"

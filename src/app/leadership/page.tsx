@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
@@ -6,7 +7,7 @@ import { Section } from "@/components/ui/layout";
 import { WorldMap } from "@/components/map/world-map";
 import { CareerBrowser } from "@/components/leadership/career-browser";
 import { getCareer, getCommittees, sortCareer } from "@/lib/content";
-import { ogImage, site } from "@/lib/site";
+import { ogImageFor, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Leadership",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     title: `Leadership · ${site.name}`,
     description: `Career record of ${site.name}: university executive roles, governance committees and institution-building across Africa, Europe and the Americas.`,
     url: `${site.url}/leadership`,
-    images: [ogImage],
+    images: [ogImageFor("leadership", "Leadership")],
   },
 };
 
@@ -54,6 +55,7 @@ export default function LeadershipPage() {
 
   return (
     <>
+      <Breadcrumbs items={[{ name: "Leadership" }]} />
       <Section className="pt-10 sm:pt-16" aria-labelledby="career">
         <Heading id="career" level={1} size={2} eyebrow="Leadership">
           Career timeline

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { GalleryBrowser, type GalleryPhoto } from "@/components/gallery/gallery-browser";
 import { Heading } from "@/components/ui/heading";
 import { Section } from "@/components/ui/layout";
 import { getImages } from "@/lib/content";
 import { imageSrc } from "@/lib/images";
-import { site } from "@/lib/site";
+import { ogImageFor, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
     title: `Gallery · ${site.name}`,
     description: `Photographs of ${site.name} in academic, civic and public engagements.`,
     url: `${site.url}/gallery`,
+    images: [ogImageFor("gallery", "Gallery")],
   },
 };
 
@@ -42,17 +44,20 @@ export default function GalleryPage() {
     }));
 
   return (
-    <Section className="pt-10 sm:pt-16" aria-labelledby="gallery">
-      <Heading id="gallery" level={1} size={2} eyebrow="Gallery">
-        In pictures
-      </Heading>
-      <p className="text-ink-muted mt-4 max-w-prose">
-        A curated selection from academic life, public engagements and portraits. Select any photograph to view it
-        larger; use the arrow keys to browse and Escape to close.
-      </p>
-      <div className="mt-10">
-        <GalleryBrowser photos={photos} />
-      </div>
-    </Section>
+    <>
+      <Breadcrumbs items={[{ name: "Gallery" }]} />
+      <Section className="pt-10 sm:pt-16" aria-labelledby="gallery">
+        <Heading id="gallery" level={1} size={2} eyebrow="Gallery">
+          In pictures
+        </Heading>
+        <p className="text-ink-muted mt-4 max-w-prose">
+          A curated selection from academic life, public engagements and portraits. Select any photograph to view it
+          larger; use the arrow keys to browse and Escape to close.
+        </p>
+        <div className="mt-10">
+          <GalleryBrowser photos={photos} />
+        </div>
+      </Section>
+    </>
   );
 }
