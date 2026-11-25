@@ -9,7 +9,7 @@ Update the **Status** section below as decisions arrive; never resolve a conflic
 | -------------------------------------------------------------------------------------------------- | ------------------------- |
 | Domain name                                                                                        | Pending                   |
 | Contact-form delivery address                                                                      | Pending                   |
-| Hero photo (suggested: `portrait-suit-charcoal` formal, or `portrait-kaftan-white-b` approachable) | Pending                   |
+| Hero photo (suggested: `portrait-suit-charcoal` formal, or `portrait-kaftan-white-b` approachable) | Decided 2026-11-25: `regalia-full-a` (doctoral regalia, client-supplied) |
 | #2 Professorship rank/date                                                                         | Pending (default applies) |
 | #5 Degree names and fields                                                                         | Pending (default applies) |
 | #7 Conference dates/venues/ISBNs                                                                   | Pending (default applies) |

@@ -42,7 +42,7 @@ const HIGHLIGHTS = [
 
 export default function HomePage() {
   const profile = getProfile();
-  const hero = imageById("portrait-suit-charcoal");
+  const hero = imageById("regalia-full-a");
   const latestTalk = getTalks().find((t) => t.status === "verified");
   const countryCount = verifiedCountries(getCountries()).length;
 
