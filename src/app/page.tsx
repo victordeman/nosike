@@ -6,10 +6,8 @@ import { Heading } from "@/components/ui/heading";
 import { Container, Section } from "@/components/ui/layout";
 import { Stat, StatList } from "@/components/ui/stat";
 import { WorldMap } from "@/components/map/world-map";
-import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getCountries, getProfile, getTalks, verifiedCountries } from "@/lib/content";
-import { imageById } from "@/lib/images";
 import { ogImage, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -42,7 +40,6 @@ const HIGHLIGHTS = [
 
 export default function HomePage() {
   const profile = getProfile();
-  const hero = imageById("regalia-full-a");
   const latestTalk = getTalks().find((t) => t.status === "verified");
   const countryCount = verifiedCountries(getCountries()).length;
 
@@ -76,32 +73,17 @@ export default function HomePage() {
 
       {/* Hero */}
       <Section className="pt-10 sm:pt-16">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <h1 className="text-[clamp(1.6rem,1rem+2.5vw,3rem)] leading-[1.05] font-semibold whitespace-nowrap">
-              {profile.displayName}
-            </h1>
-            <p className="text-ink-muted mt-6 max-w-prose text-lg">{profile.positioningLine}.</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/scholarship">Explore his work</ButtonLink>
-              <ButtonLink href="/media-kit" variant="secondary">
-                Download CV
-              </ButtonLink>
-            </div>
+        <div className="max-w-3xl">
+          <h1 className="text-[clamp(1.6rem,1rem+2.5vw,3rem)] leading-[1.05] font-semibold whitespace-nowrap">
+            {profile.displayName}
+          </h1>
+          <p className="text-ink-muted mt-6 max-w-prose text-lg">{profile.positioningLine}.</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <ButtonLink href="/scholarship">Explore his work</ButtonLink>
+            <ButtonLink href="/media-kit" variant="secondary">
+              Download CV
+            </ButtonLink>
           </div>
-          {hero ? (
-            <div className="order-first lg:order-none">
-              <div className="bg-surface rounded-card shadow-card overflow-hidden">
-                <ResponsiveImage
-                  image={hero}
-                  priority
-                  sizes="(min-width: 1024px) 40vw, 90vw"
-                  className="aspect-[3/4]"
-                  imgClassName="h-full w-full object-cover"
-                />
-              </div>
-            </div>
-          ) : null}
         </div>
       </Section>
 
