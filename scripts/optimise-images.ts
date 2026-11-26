@@ -70,7 +70,7 @@ const SPECS: Spec[] = [
   {
     source: "unnamed-logo.jpg",
     target: "brand-portrait",
-    alt: "Prof. Austin Nosike in doctoral regalia, used as the site logo",
+    alt: "Prof. Austin Nosike in full doctoral regalia with cap, standing",
     role: "regalia",
     focalX: 0.5,
     focalY: 0.2,
