@@ -65,6 +65,14 @@ const SPECS: Spec[] = [
     role: "regalia",
   },
   {
+    source: "unnamed-logo.jpg",
+    target: "brand-portrait",
+    alt: "Prof. Austin Nosike in doctoral regalia, used as the site logo",
+    role: "regalia",
+    focalX: 0.5,
+    focalY: 0.2,
+  },
+  {
     source: "WhatsApp Image 2026-11-18 at 21.10.03.jpeg",
     target: "portrait-blazer-mustard",
     alt: "Prof. Austin Nosike in a mustard blazer",
