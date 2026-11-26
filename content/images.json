@@ -58,6 +58,20 @@
     "galleryCategory": "academic"
   },
   {
+    "id": "brand-portrait",
+    "file": "brand-portrait",
+    "widths": [
+      480
+    ],
+    "width": 896,
+    "height": 1200,
+    "focalX": 0.5,
+    "focalY": 0.2,
+    "alt": "Prof. Austin Nosike in doctoral regalia, used as the site logo",
+    "role": "regalia",
+    "sourceFile": "unnamed-logo.jpg"
+  },
+  {
     "id": "portrait-blazer-mustard",
     "file": "portrait-blazer-mustard",
     "widths": [
