@@ -33,6 +33,7 @@ interface Spec {
   focalX?: number;
   focalY?: number;
   crop?: Crop;
+  galleryCategory?: "portraits" | "academic" | "engagements";
   skip?: boolean;
 }
 
@@ -53,6 +54,7 @@ const SPECS: Spec[] = [
   {
     source: "WhatsApp Image 2026-11-18 at 21.09.05.jpeg",
     target: "portrait-suit-charcoal",
+    galleryCategory: "portraits",
     alt: "Prof. Austin Nosike in a charcoal suit and blue patterned tie",
     role: "hero",
     focalX: 0.5,
@@ -61,6 +63,7 @@ const SPECS: Spec[] = [
   {
     source: "WhatsApp Image 2026-11-18 at 21.10.03 (1).jpeg",
     target: "regalia-full-a",
+    galleryCategory: "academic",
     alt: "Prof. Austin Nosike in full doctoral regalia with cap, standing",
     role: "regalia",
   },
@@ -81,6 +84,7 @@ const SPECS: Spec[] = [
   {
     source: "WhatsApp Image 2026-11-18 at 21.10.04 (1).jpeg",
     target: "portrait-traditional-cap-mustard-a",
+    galleryCategory: "portraits",
     alt: "Prof. Austin Nosike in a mustard shirt and patterned cap",
     role: "about",
   },
@@ -93,6 +97,7 @@ const SPECS: Spec[] = [
   {
     source: "WhatsApp Image 2026-11-18 at 21.10.04.jpeg",
     target: "regalia-full-b",
+    galleryCategory: "academic",
     alt: "Prof. Austin Nosike in full doctoral regalia with cap, standing",
     role: "regalia",
   },
@@ -112,6 +117,7 @@ const SPECS: Spec[] = [
   {
     source: "WhatsApp Image 2026-11-18 at 21.12.08.jpeg",
     target: "portrait-tunic-black-cap-a",
+    galleryCategory: "portraits",
     alt: "Prof. Austin Nosike in a black tunic with embroidered cap",
     role: "about",
     crop: { left: 0, top: 0, width: 0.7, height: 1 },
@@ -119,6 +125,7 @@ const SPECS: Spec[] = [
   {
     source: "WhatsApp Image 2026-11-18 at 21.12.09 (1).jpeg",
     target: "portrait-tunic-maroon-a",
+    galleryCategory: "portraits",
     alt: "Prof. Austin Nosike in a maroon tunic",
     role: "gallery",
   },
@@ -131,6 +138,7 @@ const SPECS: Spec[] = [
   {
     source: "WhatsApp Image 2026-11-18 at 21.12.09 (4).jpeg",
     target: "portrait-tunic-maroon-thoughtful",
+    galleryCategory: "portraits",
     alt: "Prof. Austin Nosike in a maroon tunic, hand at chin",
     role: "about",
   },
@@ -155,6 +163,7 @@ const SPECS: Spec[] = [
   {
     source: "WhatsApp Image 2026-11-18 at 21.12.10 (2).jpeg",
     target: "portrait-kaftan-white-b",
+    galleryCategory: "portraits",
     alt: "Prof. Austin Nosike in a white kaftan",
     role: "hero",
     focalX: 0.5,
@@ -164,6 +173,7 @@ const SPECS: Spec[] = [
   {
     source: "WhatsApp Image 2026-11-18 at 21.12.10 (3).jpeg",
     target: "speaking-desk",
+    galleryCategory: "engagements",
     alt: "Prof. Austin Nosike in a white kaftan speaking at a desk",
     role: "talks",
     crop: { left: 0.05, top: 0.33, width: 0.85, height: 0.67 },
@@ -180,6 +190,7 @@ const SPECS: Spec[] = [
   {
     source: "S2-supplied-21.12.10.jpeg",
     target: "talk-session-a",
+    galleryCategory: "engagements",
     alt: "Prof. Austin Nosike in a white kaftan at a conference table",
     role: "talks",
     crop: { left: 0.12, top: 0.25, width: 0.7, height: 0.75 },
@@ -248,6 +259,7 @@ async function main() {
       alt: spec.alt,
       role: spec.role,
       sourceFile: spec.source,
+      ...(spec.galleryCategory ? { galleryCategory: spec.galleryCategory } : {}),
     });
     console.log(`optimised ${spec.target} (${srcW}x${srcH}, widths ${widths.join("/")})`);
   }
